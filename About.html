@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="À propos de 63Agency — Du marketing à la croissance réelle.">
+  <title>About Us — 63Agency.com</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container navbar__inner">
+      <a href="Aceuil.html" class="navbar__logo"><img src="src/images/logo/image.png" alt="63Agency.com"></a>
+
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="Aceuil.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="Services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="Aceuil.html#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="About.html" class="active" data-i18n="nav.about">About Us</a></li>
+        <li><a href="Contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-switch__btn" data-set-lang="fr">FR</button>
+          <button type="button" class="lang-switch__btn" data-set-lang="en">EN</button>
+        </div>
+        <a href="Contact.html" class="btn btn--gold" data-i18n="nav.apply"><span>Apply Now</span></a>
+        <button class="navbar__toggle" id="navToggle" aria-label="Open menu" data-i18n-aria="nav.open" aria-expanded="false" aria-controls="navSidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-overlay" id="navOverlay" hidden></div>
+  <aside class="nav-sidebar" id="navSidebar" aria-hidden="true">
+    <div class="nav-sidebar__header">
+      <a href="Aceuil.html" class="navbar__logo"><img src="src/images/logo/image.png" alt="63Agency.com"></a>
+      <div class="nav-sidebar__header-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-switch__btn" data-set-lang="fr">FR</button>
+          <button type="button" class="lang-switch__btn" data-set-lang="en">EN</button>
+        </div>
+        <button class="nav-sidebar__close" id="navClose" aria-label="Close menu" data-i18n-aria="nav.close">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <ul class="nav-sidebar__links">
+      <li><a href="Aceuil.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="Services.html" data-i18n="nav.services">Services</a></li>
+      <li><a href="Aceuil.html#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="About.html" class="active" data-i18n="nav.about">About Us</a></li>
+      <li><a href="Contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-sidebar__footer">
+      <a href="Contact.html" class="btn btn--gold btn--lg" data-i18n="nav.apply"><span>Apply Now</span></a>
+      <div class="nav-sidebar__social">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="footer__social-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="footer__social-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9z"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/212600000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="footer__social-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M20.5 3.5A11 11 0 0 0 2.2 17.1L1 23l6.1-1.6A11 11 0 1 0 20.5 3.5zm-8.5 17a9.1 9.1 0 0 1-4.6-1.3l-.3-.2-3.6.9 1-3.5-.2-.3a9.1 9.1 0 1 1 7.7 4.4zm5-6.8c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5c.1-.1.2-.3.3-.4s0-.3 0-.4-.6-1.4-.8-1.9-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3s-.8.8-.8 1.9.8 2.2.9 2.3a9.7 9.7 0 0 0 3.7 3.3c1.4.6 1.9.6 2.6.5s1.1-.5 1.3-.9.3-.8.2-.9-.2-.2-.5-.3z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <main class="about-page">
+    <section class="about-hero">
+      <div class="about-hero__glow" aria-hidden="true"></div>
+      <div class="container about-hero__inner">
+        <p class="about-hero__brand" data-animate="fade-up" data-delay="0">63Agency</p>
+        <h1 class="about-hero__title" data-animate="fade-up" data-delay="80" data-i18n="about.hero.title">
+          De la visibilité aux résultats.
+        </h1>
+        <p class="about-hero__lead" data-animate="fade-up" data-delay="160" data-i18n="about.hero.lead">
+          63 Agency est née avec une ambition simple : transformer le marketing en véritable moteur de croissance.
+        </p>
+      </div>
+    </section>
+
+    <section class="about-story">
+      <div class="container about-story__inner">
+        <p class="about-story__text" data-animate="fade-up" data-delay="0" data-i18n="about.story.1">
+          Nous accompagnons les entreprises qui veulent aller au-delà de la visibilité et générer de réelles opportunités commerciales.
+        </p>
+        <p class="about-story__text" data-animate="fade-up" data-delay="80" data-i18n="about.story.2">
+          Notre approche réunit quatre leviers essentiels : contenu, publicité, automatisation et suivi commercial.
+        </p>
+        <p class="about-story__text about-story__text--accent" data-animate="fade-up" data-delay="160" data-i18n="about.story.3">
+          L’objectif : construire un système capable d’attirer les bonnes personnes, de les convertir en prospects qualifiés et de transformer davantage d’opportunités en clients.
+        </p>
+      </div>
+    </section>
+
+    <section class="about-path">
+      <div class="container">
+        <div class="about-path__intro" data-animate="fade-up" data-delay="0">
+          <p class="about-path__eyebrow" data-i18n="about.path.eyebrow">Le parcours d’acquisition</p>
+          <h2 class="about-path__title" data-i18n="about.path.title">
+            Nous ne cherchons pas simplement à générer des clics, des vues ou des formulaires.
+          </h2>
+          <p class="about-path__sub" data-i18n="about.path.sub">
+            Nous construisons tout le parcours d’acquisition :
+          </p>
+        </div>
+
+        <ol class="about-steps">
+          <li class="about-step" data-animate="fade-up" data-delay="0">
+            <span class="about-step__num" aria-hidden="true">01</span>
+            <div class="about-step__body">
+              <h3 class="about-step__title" data-i18n="about.step1.title">Attirer</h3>
+              <p class="about-step__text" data-i18n="about.step1.text">
+                Des contenus et campagnes publicitaires conçus pour capter l’attention de votre marché.
+              </p>
+            </div>
+          </li>
+          <li class="about-step" data-animate="fade-up" data-delay="60">
+            <span class="about-step__num" aria-hidden="true">02</span>
+            <div class="about-step__body">
+              <h3 class="about-step__title" data-i18n="about.step2.title">Convertir</h3>
+              <p class="about-step__text" data-i18n="about.step2.text">
+                Des funnels pensés pour transformer cette attention en prospects qualifiés.
+              </p>
+            </div>
+          </li>
+          <li class="about-step" data-animate="fade-up" data-delay="120">
+            <span class="about-step__num" aria-hidden="true">03</span>
+            <div class="about-step__body">
+              <h3 class="about-step__title" data-i18n="about.step3.title">Automatiser</h3>
+              <p class="about-step__text" data-i18n="about.step3.text">
+                Des connexions et automatisations pour que chaque lead arrive au bon endroit et soit traité rapidement.
+              </p>
+            </div>
+          </li>
+          <li class="about-step" data-animate="fade-up" data-delay="180">
+            <span class="about-step__num" aria-hidden="true">04</span>
+            <div class="about-step__body">
+              <h3 class="about-step__title" data-i18n="about.step4.title">Optimiser</h3>
+              <p class="about-step__text" data-i18n="about.step4.text">
+                Un suivi continu des campagnes, des leads et des performances commerciales pour améliorer les résultats.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="about-metric">
+      <div class="about-metric__line" aria-hidden="true"></div>
+      <div class="container about-metric__inner">
+        <h2 class="about-metric__title" data-animate="fade-up" data-delay="0" data-i18n="about.metric.title">
+          Une seule métrique compte vraiment : la croissance.
+        </h2>
+        <div class="about-metric__copy">
+          <p data-animate="fade-up" data-delay="80" data-i18n="about.metric.1">
+            Notre travail ne s’arrête pas au marketing.
+          </p>
+          <p data-animate="fade-up" data-delay="140" data-i18n="about.metric.2">
+            Nous cherchons à comprendre ce qui se passe après le lead : combien de prospects répondent, prennent rendez-vous, se présentent et deviennent réellement clients.
+          </p>
+          <p class="about-metric__close" data-animate="fade-up" data-delay="200" data-i18n="about.metric.3">
+            Parce qu’au final, le marketing n’a de valeur que lorsqu’il contribue à développer votre chiffre d’affaires.
+          </p>
+        </div>
+        <a href="Contact.html" class="btn btn--white btn--lg about-metric__cta" data-animate="fade-up" data-delay="280" data-i18n="about.cta">
+          <span>Parler à un expert</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <section class="faq" id="faq">
+    <div class="container faq__inner">
+      <div class="faq__header" data-animate="fade-up" data-delay="0">
+        <p class="faq__eyebrow" data-i18n="faq.eyebrow">FAQ</p>
+        <h2 class="faq__title" data-i18n="faq.title">Questions fréquentes</h2>
+        <p class="faq__sub" data-i18n="faq.sub">
+          Les réponses aux questions que l’on nous pose le plus souvent.
+        </p>
+      </div>
+
+      <div class="faq__list" data-animate="fade-up" data-delay="100">
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span data-i18n="faq.q1">Pour qui est faite 63Agency ?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p data-i18n="faq.a1">
+              Pour les entreprises et établissements qui veulent un système d’acquisition clair : éducation, services B2B &amp; B2C, et immobilier. Idéal si vous voulez des prospects qualifiés, pas seulement de la visibilité.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span data-i18n="faq.q2">Combien de temps faut-il pour voir des résultats ?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p data-i18n="faq.a2">
+              Les premiers signaux apparaissent souvent dès les premières semaines. Les résultats solides se construisent avec le suivi, l’optimisation et la qualification des leads sur 1 à 3 mois.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span data-i18n="faq.q3">Travaillez-vous uniquement dans l’éducation ?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p data-i18n="faq.a3">
+              Non. L’éducation est un de nos secteurs forts, mais nous accompagnons aussi les entreprises de services B2B &amp; B2C et l’immobilier, avec le même système : contenu, publicité, automatisation et suivi commercial.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span data-i18n="faq.q4">Quel budget publicitaire faut-il prévoir ?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p data-i18n="faq.a4">
+              Cela dépend de vos objectifs et de votre capacité. Nous définissons un budget adapté lors de l’audit, pour générer des leads qualifiés sans gaspiller la dépense media.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span data-i18n="faq.q5">Comment se passe le démarrage ?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p data-i18n="faq.a5">
+              On commence par un échange / audit pour comprendre votre offre, votre marché et vos objectifs. Ensuite on met en place le système : positionnement, campagnes, tunnel de qualification et suivi.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span data-i18n="faq.q6">Proposez-vous un audit gratuit ?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p data-i18n="faq.a6">
+              Oui. Vous pouvez demander un audit marketing gratuit pour identifier vos quick wins et un plan d’action clair avant de démarrer.
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="apply">
+    <div class="container">
+      <div class="cta__card" data-animate="fade-up" data-delay="0">
+        <div class="cta__bg">
+          <div id="cta-waves" class="line-waves-container"></div>
+        </div>
+        <div class="cta__overlay"></div>
+        <div class="cta__content">
+          <h2 class="cta__title" data-i18n="cta.title">Ready to Build Something Disgustingly Profitable?</h2>
+          <p class="cta__text" data-i18n="cta.text">
+            We don't work with everyone. But if you're the right fit, this will be the most valuable relationship you've ever had in business.
+          </p>
+          <a href="Contact.html" class="btn btn--gold btn--lg cta__btn">
+            <span data-i18n="cta.btn">Apply to Work With Us</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand-block">
+          <a href="Aceuil.html" class="footer__brand">63Agency<span>.com</span></a>
+          <p class="footer__disclaimer" data-i18n="footer.disclaimer">
+            Disclaimer: This site is not a part of the Facebook website or Facebook Inc.
+            Additionally, This site is NOT endorsed by Facebook in any way. FACEBOOK is a
+            trademark of FACEBOOK, Inc.
+          </p>
+        </div>
+
+        <div class="footer__social">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="footer__social-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="footer__social-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/212600000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="footer__social-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M20.5 3.5A11 11 0 0 0 2.2 17.1L1 23l6.1-1.6A11 11 0 1 0 20.5 3.5zm-8.5 17a9.1 9.1 0 0 1-4.6-1.3l-.3-.2-3.6.9 1-3.5-.2-.3a9.1 9.1 0 1 1 7.7 4.4zm5-6.8c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5c.1-.1.2-.3.3-.4s0-.3 0-.4-.6-1.4-.8-1.9-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3s-.8.8-.8 1.9.8 2.2.9 2.3a9.7 9.7 0 0 0 3.7 3.3c1.4.6 1.9.6 2.6.5s1.1-.5 1.3-.9.3-.8.2-.9-.2-.2-.5-.3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__divider"></div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy"><span data-i18n="footer.copy">&copy; 2026 63Agency.com All rights reserved.</span></p>
+        <p class="footer__legal">
+          <a href="#privacy" data-i18n="footer.privacy">Privacy Policy</a>
+          <span>|</span>
+          <a href="#terms" data-i18n="footer.terms">Terms &amp; Conditions</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="float-actions">
+    <a
+      class="float-btn float-btn--whatsapp"
+      href="https://wa.me/212600000000"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp" data-i18n-aria="float.whatsapp"
+      title="WhatsApp" data-i18n-title="float.whatsapp"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+
+    <button class="float-btn float-btn--top" id="scrollTopBtn" aria-label="Back to top" data-i18n-aria="float.top" title="Back to top" data-i18n-title="float.top" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </button>
+  </div>
+
+  <script type="module">
+    import { initLineWaves } from './js/LineWaves.js';
+    import { initNavbar } from './js/navbar.js';
+    import { initI18n } from './js/i18n.js';
+    import { initScrollAnimations, initScrollTop } from './js/scroll.js';
+
+    initI18n();
+    initNavbar();
+    initScrollAnimations();
+    initScrollTop();
+
+    document.querySelectorAll('.faq__item').forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+        document.querySelectorAll('.faq__item').forEach((other) => {
+          if (other !== item) other.open = false;
+        });
+      });
+    });
+
+    initLineWaves(document.getElementById('cta-waves'), {
+      speed: 0.2,
+      innerLineCount: 28,
+      outerLineCount: 34,
+      warpIntensity: 1.1,
+      rotation: -40,
+      brightness: 0.12,
+      color1: '#b8b8b8',
+      color2: '#9a9a9a',
+      color3: '#7a7a7a',
+      enableMouseInteraction: false
+    });
+  </script>
+</body>
+</html>

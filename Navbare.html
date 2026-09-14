@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar — 63Agency.com</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body { min-height: 100vh; background: var(--bg); }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container navbar__inner">
+      <a href="Aceuil.html" class="navbar__logo"><img src="src/images/logo/image.png" alt="63Agency.com"></a>
+
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="Aceuil.html" class="active">Home</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="About.html">About Us</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <a href="Contact.html" class="btn btn--gold"><span>Apply Now</span></a>
+        <button class="navbar__toggle" id="navToggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <script type="module">
+    import { initNavbar } from './js/navbar.js';
+    initNavbar();
+  </script>
+</body>
+</html>

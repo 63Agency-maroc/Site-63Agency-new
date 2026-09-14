@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>63Agency.com</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="Aceuil.html" class="navbar__logo"><img src="src/images/logo/image.png" alt="63Agency.com"></a>
+
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="Aceuil.html" class="active" data-i18n="nav.home">Home</a></li>
+        <li><a href="Services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="About.html" data-i18n="nav.about">About Us</a></li>
+        <li><a href="Contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-switch__btn" data-set-lang="fr">FR</button>
+          <button type="button" class="lang-switch__btn" data-set-lang="en">EN</button>
+        </div>
+        <a href="Contact.html" class="btn btn--gold" data-i18n="nav.apply"><span>Apply Now</span></a>
+        <button class="navbar__toggle" id="navToggle" aria-label="Open menu" data-i18n-aria="nav.open" aria-expanded="false" aria-controls="navSidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-overlay" id="navOverlay" hidden></div>
+  <aside class="nav-sidebar" id="navSidebar" aria-hidden="true">
+    <div class="nav-sidebar__header">
+      <a href="Aceuil.html" class="navbar__logo"><img src="src/images/logo/image.png" alt="63Agency.com"></a>
+      <div class="nav-sidebar__header-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-switch__btn" data-set-lang="fr">FR</button>
+          <button type="button" class="lang-switch__btn" data-set-lang="en">EN</button>
+        </div>
+        <button class="nav-sidebar__close" id="navClose" aria-label="Close menu" data-i18n-aria="nav.close">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <ul class="nav-sidebar__links">
+      <li><a href="Aceuil.html" class="active" data-i18n="nav.home">Home</a></li>
+      <li><a href="Services.html" data-i18n="nav.services">Services</a></li>
+      <li><a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
+      <li><a href="About.html" data-i18n="nav.about">About Us</a></li>
+      <li><a href="Contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-sidebar__footer">
+      <a href="Contact.html" class="btn btn--gold btn--lg" data-i18n="nav.apply"><span>Apply Now</span></a>
+      <div class="nav-sidebar__social">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="footer__social-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="footer__social-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9z"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/212600000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="footer__social-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M20.5 3.5A11 11 0 0 0 2.2 17.1L1 23l6.1-1.6A11 11 0 1 0 20.5 3.5zm-8.5 17a9.1 9.1 0 0 1-4.6-1.3l-.3-.2-3.6.9 1-3.5-.2-.3a9.1 9.1 0 1 1 7.7 4.4zm5-6.8c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5c.1-.1.2-.3.3-.4s0-.3 0-.4-.6-1.4-.8-1.9-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3s-.8.8-.8 1.9.8 2.2.9 2.3a9.7 9.7 0 0 0 3.7 3.3c1.4.6 1.9.6 2.6.5s1.1-.5 1.3-.9.3-.8.2-.9-.2-.2-.5-.3z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <section class="hero" id="accueil">
+    <div class="hero__bg">
+      <div id="line-waves" class="line-waves-container"></div>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow" data-animate="fade-up" data-delay="0" data-i18n="hero.eyebrow">
+        Système d'acquisition pour générer des rendez-vous et des visites qualifiées.
+      </p>
+      <h1 class="hero__title" data-animate="fade-up" data-delay="80" data-i18n-html="hero.title">
+        Générez entre <span class="hero__mark">150 et 14000</span><br>
+        prospects <span class="hero__mark">qualifiés</span> chaque mois.
+      </h1>
+      <p class="hero__subtitle" data-animate="fade-up" data-delay="160" data-i18n="hero.subtitle">
+        Selon la capacité et les objectifs de votre établissement.
+      </p>
+      <p class="hero__note" data-animate="fade-up" data-delay="200" data-i18n="hero.note">
+        Spécialisés dans l'éducation, les entreprises de services B2B &amp; B2C, et l'immobilier.
+      </p>
+      <a href="Contact.html" class="btn btn--white btn--lg hero__cta" data-animate="fade-up" data-delay="280" data-i18n="hero.cta">
+        <span>Parler à un expert</span>
+      </a>
+    </div>
+
+    <div class="partners" aria-label="Partenaires" data-i18n-aria="partners.aria">
+      <p class="partners__title" data-i18n-html="partners.title">Ils nous font<br>confiance</p>
+      <div class="partners__marquee">
+        <div class="partners__track">
+          <div class="partners__group">
+            <img src="src/images/partner-logos/Afriquia.webp" alt="Afriquia">
+            <img src="src/images/partner-logos/CommonsLogo.webp" alt="Commons">
+            <img src="src/images/partner-logos/EasyPower(1)(2).webp" alt="EasyPower">
+            <img src="src/images/partner-logos/londonacademio.webp" alt="London Academio">
+            <img src="src/images/partner-logos/MGT-PNG.webp" alt="MGT">
+            <img src="src/images/partner-logos/Unit-Education%20.webp" alt="Unit Education">
+            <img src="src/images/partner-logos/LOGO%20PNG-01.webp" alt="Partner">
+            <img src="src/images/partner-logos/logo-social-media.webp" alt="Partner">
+            <img src="src/images/partner-logos/logo02cadre.webp" alt="Partner">
+            <img src="src/images/partner-logos/logoo.webp" alt="Partner">
+            <img src="src/images/partner-logos/partener1.webp" alt="Partner">
+            <img src="src/images/partner-logos/partener2.webp" alt="Partner">
+            <img src="src/images/partner-logos/partener3.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire4.webp" alt="Partner">
+            <img src="src/images/partner-logos/Partenaire5.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire6.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire7.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire8.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire9.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire10.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire11.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire12.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire13.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire14.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire15.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire16.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire17.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire18.webp" alt="Partner">
+            <img src="src/images/partner-logos/partenaire19.webp" alt="Partner">
+            <img src="src/images/partner-logos/unnamed%20(1).webp" alt="Partner">
+          </div>
+          <div class="partners__group" aria-hidden="true">
+            <img src="src/images/partner-logos/Afriquia.webp" alt="">
+            <img src="src/images/partner-logos/CommonsLogo.webp" alt="">
+            <img src="src/images/partner-logos/EasyPower(1)(2).webp" alt="">
+            <img src="src/images/partner-logos/londonacademio.webp" alt="">
+            <img src="src/images/partner-logos/MGT-PNG.webp" alt="">
+            <img src="src/images/partner-logos/Unit-Education%20.webp" alt="">
+            <img src="src/images/partner-logos/LOGO%20PNG-01.webp" alt="">
+            <img src="src/images/partner-logos/logo-social-media.webp" alt="">
+            <img src="src/images/partner-logos/logo02cadre.webp" alt="">
+            <img src="src/images/partner-logos/logoo.webp" alt="">
+            <img src="src/images/partner-logos/partener1.webp" alt="">
+            <img src="src/images/partner-logos/partener2.webp" alt="">
+            <img src="src/images/partner-logos/partener3.webp" alt="">
+            <img src="src/images/partner-logos/partenaire4.webp" alt="">
+            <img src="src/images/partner-logos/Partenaire5.webp" alt="">
+            <img src="src/images/partner-logos/partenaire6.webp" alt="">
+            <img src="src/images/partner-logos/partenaire7.webp" alt="">
+            <img src="src/images/partner-logos/partenaire8.webp" alt="">
+            <img src="src/images/partner-logos/partenaire9.webp" alt="">
+            <img src="src/images/partner-logos/partenaire10.webp" alt="">
+            <img src="src/images/partner-logos/partenaire11.webp" alt="">
+            <img src="src/images/partner-logos/partenaire12.webp" alt="">
+            <img src="src/images/partner-logos/partenaire13.webp" alt="">
+            <img src="src/images/partner-logos/partenaire14.webp" alt="">
+            <img src="src/images/partner-logos/partenaire15.webp" alt="">
+            <img src="src/images/partner-logos/partenaire16.webp" alt="">
+            <img src="src/images/partner-logos/partenaire17.webp" alt="">
+            <img src="src/images/partner-logos/partenaire18.webp" alt="">
+            <img src="src/images/partner-logos/partenaire19.webp" alt="">
+            <img src="src/images/partner-logos/unnamed%20(1).webp" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="about">
+    <div class="container why__inner">
+      <div class="why__media" data-animate="fade-right" data-delay="0">
+        <img src="src/images/image.png" alt="Founder of 63Agency.com" data-i18n-alt="why.alt">
+      </div>
+      <div class="why__copy">
+        <h2 class="why__title" data-animate="fade-up" data-delay="80" data-i18n="why.title">Why We Built 63Agency.com</h2>
+        <p class="why__text" data-animate="fade-up" data-delay="180" data-i18n="why.text">
+          Most of what's taught online today is noise — recycled tactics, surface-level
+          courses, and influencer-led programs. 63Agency.com exists to fix that. We built
+          our own systems using the same strategies we now install for others. If you're
+          already winning but want to win faster, cleaner, and at scale, you're in the
+          right place.
+        </p>
+        <p class="why__signature" data-animate="fade-up" data-delay="280">Saad</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement" id="services">
+    <div class="container">
+      <div class="statement__intro">
+        <h2 class="statement__title" data-animate="fade-up" data-delay="0" data-i18n="statement.title">
+          Where the Best Go to Get Even Better
+        </h2>
+        <p class="statement__text" data-animate="fade-up" data-delay="100" data-i18n="statement.text">
+          63Agency.com is the private marketing agency for business owners who are
+          already winning — and who want to go further and faster.
+        </p>
+      </div>
+
+      <div class="services-panel" data-animate="fade-up" data-delay="180">
+        <div class="services-panel__accent" aria-hidden="true"></div>
+        <div class="services-panel__dots" aria-hidden="true"></div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-card__dash"></span>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none">
+                <defs>
+                  <linearGradient id="iconM" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#f5d08a"/>
+                    <stop offset="1" stop-color="#c47a2a"/>
+                  </linearGradient>
+                </defs>
+                <g transform="translate(40 40) rotate(-20) translate(-40 -40)">
+                  <path d="M18 16v48" stroke="url(#iconM)" stroke-width="9" stroke-linecap="round"/>
+                  <path d="M40 16v48" stroke="url(#iconM)" stroke-width="9" stroke-linecap="round"/>
+                  <path d="M62 16v48" stroke="url(#iconM)" stroke-width="9" stroke-linecap="round"/>
+                </g>
+              </svg>
+            </div>
+            <h3 class="service-card__title" data-i18n="service.monetise">Monetise</h3>
+            <p class="service-card__desc" data-i18n="service.monetise.desc">
+              For early-stage founders building and launching their first digital product business.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__dash"></span>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none">
+                <defs>
+                  <linearGradient id="iconUp" x1="20" y1="60" x2="60" y2="20" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#f5d08a"/>
+                    <stop offset="1" stop-color="#c47a2a"/>
+                  </linearGradient>
+                </defs>
+                <path d="M26 54L54 26" stroke="url(#iconUp)" stroke-width="9" stroke-linecap="round"/>
+                <path d="M30 26h24v24" stroke="url(#iconUp)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title" data-i18n="service.uplevel">UpLevel</h3>
+            <p class="service-card__desc" data-i18n="service.uplevel.desc">
+              For founders seeking hands-on consulting support to build and launch a digital product business.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__dash"></span>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none">
+                <defs>
+                  <linearGradient id="iconQ" x1="20" y1="12" x2="60" y2="68" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#f5d08a"/>
+                    <stop offset="1" stop-color="#c47a2a"/>
+                  </linearGradient>
+                </defs>
+                <text x="40" y="56" text-anchor="middle" font-family="Georgia, serif" font-size="58" font-weight="700" fill="url(#iconQ)">Q</text>
+              </svg>
+            </div>
+            <h3 class="service-card__title" data-i18n="service.quantum">Quantum</h3>
+            <p class="service-card__desc" data-i18n="service.quantum.desc">
+              For high-level founders earning $20K+/mo who want to install the exact systems that scaled our own companies.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__dash"></span>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none">
+                <defs>
+                  <linearGradient id="iconT" x1="16" y1="20" x2="64" y2="60" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#f5d08a"/>
+                    <stop offset="1" stop-color="#c47a2a"/>
+                  </linearGradient>
+                </defs>
+                <path d="M18 28c0-4.4 3.6-8 8-8h28c4.4 0 8 3.6 8 8v4a6 6 0 010 12v4c0 4.4-3.6 8-8 8H26c-4.4 0-8-3.6-8-8v-4a6 6 0 010-12v-4z" stroke="url(#iconT)" stroke-width="5"/>
+                <circle cx="40" cy="40" r="4" fill="url(#iconT)"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title" data-i18n="service.masterminds">Masterminds</h3>
+            <p class="service-card__desc" data-i18n="service.masterminds.desc">
+              Invite-only in-person gatherings with the most elite minds in the digital space.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="certified" id="certified">
+    <div class="certified__grid" aria-hidden="true"></div>
+    <div class="certified__glow" aria-hidden="true"></div>
+    <div class="container certified__inner">
+      <div class="certified__header" data-animate="fade-up" data-delay="0">
+        <p class="certified__eyebrow">
+          <span class="certified__dash" aria-hidden="true"></span>
+          <span data-i18n="certified.eyebrow">Partenaires &amp; Certifications</span>
+        </p>
+        <p class="certified__tag" data-i18n="certified.tag">/ Certifié</p>
+      </div>
+
+      <h2 class="certified__title" data-animate="fade-up" data-delay="80" data-i18n-html="certified.title">
+        Certifiés là où<br><span>ça compte.</span>
+      </h2>
+
+      <div class="certified__logos" data-animate="fade-up" data-delay="160">
+        <article class="certified__item">
+          <div class="certified__mark" aria-hidden="true">
+            <svg viewBox="0 0 36 24" fill="none">
+              <path d="M12.2 4.2c-2.1 0-3.9 2.7-3.9 6s1.8 6 3.9 6c1.2 0 2.2-.9 3.1-2.3.9 1.4 1.9 2.3 3.1 2.3 2.1 0 3.9-2.7 3.9-6s-1.8-6-3.9-6c-1.2 0-2.2.9-3.1 2.3-.9-1.4-1.9-2.3-3.1-2.3zm0 2.2c.6 0 1.3.7 1.9 1.9v3.8c-.6 1.2-1.3 1.9-1.9 1.9-1.1 0-2-1.8-2-4s.9-4 2-4zm6.2 0c1.1 0 2 1.8 2 4s-.9 4-2 4c-.6 0-1.3-.7-1.9-1.9V8.3c.6-1.2 1.3-1.9 1.9-1.9z" fill="#0082FB"/>
+            </svg>
+          </div>
+          <div class="certified__copy">
+            <p class="certified__name">Meta</p>
+            <p class="certified__role" data-i18n="certified.meta">Business Partner</p>
+          </div>
+        </article>
+
+        <article class="certified__item">
+          <div class="certified__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09A6.97 6.97 0 0 1 5.48 12c0-.73.13-1.43.36-2.09V7.07H2.18A11.96 11.96 0 0 0 1 12c0 1.94.46 3.77 1.18 5.43l3.66-2.84z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+          </div>
+          <div class="certified__copy">
+            <p class="certified__name">Google</p>
+            <p class="certified__role" data-i18n="certified.google">Partner</p>
+          </div>
+        </article>
+
+        <article class="certified__item">
+          <div class="certified__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M16.6 5.8c.9-.9 1.5-2.1 1.7-3.4h.1c-1.3.1-2.5.7-3.4 1.6-.8.9-1.4 2-1.5 3.2h.1c1.2 0 2.3-.5 3.1-1.4z" fill="#25F4EE"/>
+              <path d="M18.4 8.2c-1.7 0-3.2.8-4.2 2.1v7.4c0 1.7-1.4 3.1-3.1 3.1s-3.1-1.4-3.1-3.1 1.4-3.1 3.1-3.1c.3 0 .6 0 .9.1v-3.4c-.3 0-.6-.1-.9-.1-3.5 0-6.4 2.9-6.4 6.4S7.7 24 11.2 24s6.4-2.9 6.4-6.4V9.9c1.1 1 2.5 1.5 4 1.5v-3.2c-1.1 0-2.2-.4-3.2-1z" fill="#FE2C55"/>
+              <path d="M14.2 10.3v7.4c0 1.7-1.4 3.1-3.1 3.1-.5 0-1-.1-1.4-.4 1.2-.6 2-1.8 2-3.2V10.4c.4-.1.8-.1 1.2-.1.5 0 .9 0 1.3.1z" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="certified__copy">
+            <p class="certified__name">TikTok</p>
+            <p class="certified__role" data-i18n="certified.tiktok">Marketing Partner</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ads-section" id="ads">
+    <div class="ads-inner">
+      <h2 class="ads-title" data-animate="fade-up" data-delay="0" data-i18n="ads.title">The Numbers Don’t Lie.</h2>
+      <div class="ads-grid">
+        <div class="ads-col" data-animate="fade-up" data-delay="80">
+          <div class="ads-card">
+            <div class="ads-card-bg" aria-hidden="true"></div>
+            <div class="ads-glow ads-glow-meta" aria-hidden="true"></div>
+            <img
+              class="ads-image"
+              src="src/images/Feceboock/Meta-Fr-(3).webp"
+              alt="Résultats Meta Ads"
+            />
+            <div class="ads-content">
+              <h3 data-i18n="ads.meta.title">Meta Ads : volume de leads qualifiés et coût par lead optimisé.</h3>
+              <p data-i18n="ads.meta.text">
+                Nos campagnes Meta ciblent la génération de leads via formulaires :
+                résultats, coût par lead, budget et dépenses, impressions et portée.
+              </p>
+              <p class="ads-emphasis" data-i18n="ads.meta.emphasis">Des milliers de leads générés, un coût par lead maîtrisé.</p>
+              <div class="ads-cta-wrap">
+                <a href="Contact.html" class="view-more-btn" aria-label="Parler à un expert" data-i18n-aria="ads.cta">
+                  <span>
+                    <span class="text-1" data-i18n="ads.cta">Parler à un expert</span>
+                    <span class="text-2" data-i18n="ads.cta">Parler à un expert</span>
+                  </span>
+                  <i>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1V11M11 1H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1V11M11 1H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ads-col" data-animate="fade-up" data-delay="200">
+          <div class="ads-card">
+            <div class="ads-card-bg" aria-hidden="true"></div>
+            <div class="ads-glow ads-glow-google" aria-hidden="true"></div>
+            <img
+              class="ads-image"
+              src="src/images/Feceboock/Google-Ads-Fr-(2).webp"
+              alt="Résultats Google Ads"
+            />
+            <div class="ads-content">
+              <h3 data-i18n="ads.google.title">Google Ads : des conversions et un coût par acquisition maîtrisés.</h3>
+              <p data-i18n="ads.google.text">
+                Nous structurons vos campagnes Google pour la génération de leads
+                sur des services à forte valeur. Suivi des ventes et du coût en temps réel.
+              </p>
+              <p class="ads-emphasis" data-i18n="ads.google.emphasis">Performance tracée, budget optimisé, ROI mesurable.</p>
+              <div class="ads-cta-wrap">
+                <a href="Contact.html" class="view-more-btn" aria-label="Parler à un expert" data-i18n-aria="ads.cta">
+                  <span>
+                    <span class="text-1" data-i18n="ads.cta">Parler à un expert</span>
+                    <span class="text-2" data-i18n="ads.cta">Parler à un expert</span>
+                  </span>
+                  <i>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1V11M11 1H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1V11M11 1H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="portfolio">
+    <div class="container">
+      <h2 class="testimonials__title" data-animate="fade-up" data-delay="0" data-i18n="testimonials.title">
+        What Our Clients Are Saying
+      </h2>
+    </div>
+
+    <div class="testimonials__marquee" data-animate="fade-up" data-delay="120">
+      <div class="testimonials__track">
+        <div class="testimonials__group">
+          <article class="testimonial">
+            <div class="testimonial__header">
+              <img class="testimonial__avatar" src="src/images/avis/Samir.png" alt="Samir Benmakhlouf">
+              <div>
+                <p class="testimonial__name">Samir Benmakhlouf</p>
+                <p class="testimonial__role" data-i18n="testimonials.samir.role">Founder — London Academy</p>
+              </div>
+            </div>
+            <div class="testimonial__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial__text" data-i18n="testimonials.samir.quote">
+              « C’est clairement la meilleure expérience que nous ayons eue avec une agence.
+              Rien à voir avec nos anciennes collaborations. Un travail sérieux et performant. »
+            </p>
+          </article>
+
+          <article class="testimonial">
+            <div class="testimonial__header">
+              <img class="testimonial__avatar" src="src/images/avis/kenza.png" alt="Kenza Noumane">
+              <div>
+                <p class="testimonial__name">Kenza Noumane</p>
+                <p class="testimonial__role" data-i18n="testimonials.kenza.role">Fondatrice — ETC Academy</p>
+              </div>
+            </div>
+            <div class="testimonial__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial__text" data-i18n="testimonials.kenza.quote">
+              « Contenu de très bon niveau. Créatif, pro, adapté à notre positionnement. »
+            </p>
+          </article>
+
+          <article class="testimonial">
+            <div class="testimonial__header">
+              <img class="testimonial__avatar" src="src/images/avis/Tarik.png" alt="Tarik El Adraoui">
+              <div>
+                <p class="testimonial__name">Tarik El Adraoui</p>
+                <p class="testimonial__role" data-i18n="testimonials.tarik.role">CEO — Oum Palace &amp; New Hotel</p>
+              </div>
+            </div>
+            <div class="testimonial__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial__text" data-i18n="testimonials.tarik.quote">
+              « Je travaille avec Saad et 63 agency depuis plus de 4 ans. C’est quelqu’un de sérieux,
+              fiable et constant dans la performance. On a généré de bons résultats ensemble et
+              la relation est basée sur la confiance. »
+            </p>
+          </article>
+
+          <article class="testimonial">
+            <div class="testimonial__header">
+              <div class="testimonial__avatar testimonial__avatar--initials" aria-hidden="true">L</div>
+              <div>
+                <p class="testimonial__name">Leila</p>
+                <p class="testimonial__role" data-i18n="testimonials.leila.role">Sales Manager — Madariss Achbal Al Atlas</p>
+              </div>
+            </div>
+            <div class="testimonial__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial__text" data-i18n="testimonials.leila.quote">
+              « Fière de travailler avec Saad. Partenaire sérieux et performant. »
+            </p>
+          </article>
+        </div>
+
+        <!-- Duplicate for seamless infinite loop -->
+        <div class="testimonials__group" aria-hidden="true">
+          <article class="testimonial">
+            <div class="testimonial__header">
+              <img class="testimonial__avatar" src="src/images/avis/Samir.png" alt="">
+              <div>
+                <p class="testimonial__name">Samir Benmakhlouf</p>
+                <p class="testimonial__role" data-i18n="testimonials.samir.role">Founder — London Academy</p>
+              </div>
+            </div>
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__text" data-i18n="testimonials.samir.quote">
+              « C’est clairement la meilleure expérience que nous ayons eue avec une agence.
+              Rien à voir avec nos anciennes collaborations. Un travail sérieux et performant. »
+            </p>
+          </article>
+
+          <article class="testimonial">
+            <div class="testimonial__header">
+              <img class="testimonial__avatar" src="src/images/avis/kenza.png" alt="">
+              <div>
+                <p class="testimonial__name">Kenza Noumane</p>
+                <p class="testimonial__role" data-i18n="testimonials.kenza.role">Fondatrice — ETC Academy</p>
+              </div>
+            </div>
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__text" data-i18n="testimonials.kenza.quote">
+              « Contenu de très bon niveau. Créatif, pro, adapté à notre positionnement. »
+            </p>
+          </article>
+
+          <article class="testimonial">
+            <div class="testimonial__header">
+              <img class="testimonial__avatar" src="src/images/avis/Tarik.png" alt="">
+              <div>
+                <p class="testimonial__name">Tarik El Adraoui</p>
+                <p class="testimonial__role" data-i18n="testimonials.tarik.role">CEO — Oum Palace &amp; New Hotel</p>
+              </div>
+            </div>
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__text" data-i18n="testimonials.tarik.quote">
+              « Je travaille avec Saad et 63 agency depuis plus de 4 ans. C’est quelqu’un de sérieux,
+              fiable et constant dans la performance. On a généré de bons résultats ensemble et
+              la relation est basée sur la confiance. »
+            </p>
+          </article>
+
+          <article class="testimonial">
+            <div class="testimonial__header">
+              <div class="testimonial__avatar testimonial__avatar--initials" aria-hidden="true">L</div>
+              <div>
+                <p class="testimonial__name">Leila</p>
+                <p class="testimonial__role" data-i18n="testimonials.leila.role">Sales Manager — Madariss Achbal Al Atlas</p>
+              </div>
+            </div>
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__text" data-i18n="testimonials.leila.quote">
+              « Fière de travailler avec Saad. Partenaire sérieux et performant. »
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container faq__inner">
+      <div class="faq__header" data-animate="fade-up" data-delay="0">
+        <p class="faq__eyebrow" data-i18n="faq.eyebrow">FAQ</p>
+        <h2 class="faq__title" data-i18n="faq.title">Questions fréquentes</h2>
+        <p class="faq__sub" data-i18n="faq.sub">
+          Les réponses aux questions que l’on nous pose le plus souvent.
+        </p>
+      </div>
+
+      <div class="faq__list" data-animate="fade-up" data-delay="100">
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span data-i18n="faq.q1">Pour qui est faite 63Agency ?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p data-i18n="faq.a1">
+              Pour les entreprises et établissements qui veulent un système d’acquisition clair : éducation, services B2B &amp; B2C, et immobilier. Idéal si vous voulez des prospects qualifiés, pas seulement de la visibilité.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span data-i18n="faq.q2">Combien de temps faut-il pour voir des résultats ?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p data-i18n="faq.a2">
+              Les premiers signaux apparaissent souvent dès les premières semaines. Les résultats solides se construisent avec le suivi, l’optimisation et la qualification des leads sur 1 à 3 mois.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span data-i18n="faq.q3">Travaillez-vous uniquement dans l’éducation ?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p data-i18n="faq.a3">
+              Non. L’éducation est un de nos secteurs forts, mais nous accompagnons aussi les entreprises de services B2B &amp; B2C et l’immobilier, avec le même système : contenu, publicité, automatisation et suivi commercial.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span data-i18n="faq.q4">Quel budget publicitaire faut-il prévoir ?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p data-i18n="faq.a4">
+              Cela dépend de vos objectifs et de votre capacité. Nous définissons un budget adapté lors de l’audit, pour générer des leads qualifiés sans gaspiller la dépense media.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span data-i18n="faq.q5">Comment se passe le démarrage ?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p data-i18n="faq.a5">
+              On commence par un échange / audit pour comprendre votre offre, votre marché et vos objectifs. Ensuite on met en place le système : positionnement, campagnes, tunnel de qualification et suivi.
+            </p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span data-i18n="faq.q6">Proposez-vous un audit gratuit ?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p data-i18n="faq.a6">
+              Oui. Vous pouvez demander un audit marketing gratuit pour identifier vos quick wins et un plan d’action clair avant de démarrer.
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="apply">
+    <div class="container">
+      <div class="cta__card" data-animate="fade-up" data-delay="0">
+        <div class="cta__bg">
+          <div id="cta-waves" class="line-waves-container"></div>
+        </div>
+        <div class="cta__overlay"></div>
+        <div class="cta__content">
+          <h2 class="cta__title" data-i18n="cta.title">Ready to Build Something Disgustingly Profitable?</h2>
+          <p class="cta__text" data-i18n="cta.text">
+            We don't work with everyone. But if you're the right fit, this will be the most valuable relationship you've ever had in business.
+          </p>
+          <a href="Contact.html" class="btn btn--gold btn--lg cta__btn">
+            <span data-i18n="cta.btn">Apply to Work With Us</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand-block">
+          <a href="Aceuil.html" class="footer__brand">63Agency<span>.com</span></a>
+          <p class="footer__disclaimer" data-i18n="footer.disclaimer">
+            Disclaimer: This site is not a part of the Facebook website or Facebook Inc.
+            Additionally, This site is NOT endorsed by Facebook in any way. FACEBOOK is a
+            trademark of FACEBOOK, Inc.
+          </p>
+        </div>
+
+        <div class="footer__social">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="footer__social-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="footer__social-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/212600000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="footer__social-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M20.5 3.5A11 11 0 0 0 2.2 17.1L1 23l6.1-1.6A11 11 0 1 0 20.5 3.5zm-8.5 17a9.1 9.1 0 0 1-4.6-1.3l-.3-.2-3.6.9 1-3.5-.2-.3a9.1 9.1 0 1 1 7.7 4.4zm5-6.8c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5c.1-.1.2-.3.3-.4s0-.3 0-.4-.6-1.4-.8-1.9-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3s-.8.8-.8 1.9.8 2.2.9 2.3a9.7 9.7 0 0 0 3.7 3.3c1.4.6 1.9.6 2.6.5s1.1-.5 1.3-.9.3-.8.2-.9-.2-.2-.5-.3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__divider"></div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy"><span data-i18n="footer.copy">&copy; 2026 63Agency.com All rights reserved.</span></p>
+        <p class="footer__legal">
+          <a href="#privacy" data-i18n="footer.privacy">Privacy Policy</a>
+          <span>|</span>
+          <a href="#terms" data-i18n="footer.terms">Terms &amp; Conditions</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="float-actions">
+    <a
+      class="float-btn float-btn--whatsapp"
+      href="https://wa.me/212600000000"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp" data-i18n-aria="float.whatsapp"
+      title="WhatsApp" data-i18n-title="float.whatsapp"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+
+    <button class="float-btn float-btn--top" id="scrollTopBtn" aria-label="Back to top" data-i18n-aria="float.top" title="Back to top" data-i18n-title="float.top" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </button>
+  </div>
+
+  <script type="module">
+    import { initLineWaves } from './js/LineWaves.js';
+    import { initNavbar } from './js/navbar.js';
+    import { initI18n } from './js/i18n.js';
+    import { initScrollAnimations, initScrollTop } from './js/scroll.js';
+
+    initI18n();
+    initNavbar();
+    initScrollAnimations();
+    initScrollTop();
+
+    document.querySelectorAll('.faq__item').forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+        document.querySelectorAll('.faq__item').forEach((other) => {
+          if (other !== item) other.open = false;
+        });
+      });
+    });
+
+    const waveOptions = {
+      speed: 0.25,
+      innerLineCount: 28,
+      outerLineCount: 34,
+      warpIntensity: 1.1,
+      rotation: -40,
+      brightness: 0.18,
+      color1: '#b8b8b8',
+      color2: '#9a9a9a',
+      color3: '#7a7a7a',
+      enableMouseInteraction: true,
+      mouseInfluence: 1.8
+    };
+
+    initLineWaves(document.getElementById('line-waves'), waveOptions);
+    initLineWaves(document.getElementById('cta-waves'), {
+      ...waveOptions,
+      speed: 0.2,
+      brightness: 0.15,
+      enableMouseInteraction: false
+    });
+  </script>
+</body>
+</html>
