@@ -7,9 +7,12 @@ export function initNavbar() {
 
   if (!navbar) return;
 
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-  });
+  const syncScrolled = () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  };
+
+  syncScrolled();
+  window.addEventListener('scroll', syncScrolled, { passive: true });
 
   const openSidebar = () => {
     if (!sidebar || !overlay || !toggle) return;
