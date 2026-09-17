@@ -7,12 +7,24 @@ export function initNavbar() {
 
   if (!navbar) return;
 
+  const preferFloating = navbar.classList.contains('scrolled');
+
   const syncScrolled = () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    if (preferFloating) {
+      navbar.classList.add('scrolled');
+      return;
+    }
+
+    const y = window.scrollY || 0;
+    const isScrolled = navbar.classList.contains('scrolled');
+    // Hysteresis: avoid flicker / hard jumps near the threshold
+    if (!isScrolled && y > 56) navbar.classList.add('scrolled');
+    else if (isScrolled && y < 18) navbar.classList.remove('scrolled');
   };
 
   syncScrolled();
   window.addEventListener('scroll', syncScrolled, { passive: true });
+  window.addEventListener('resize', syncScrolled, { passive: true });
 
   const openSidebar = () => {
     if (!sidebar || !overlay || !toggle) return;

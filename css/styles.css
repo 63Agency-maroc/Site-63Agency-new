@@ -73,33 +73,35 @@ ul {
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
   width: 100%;
+  max-width: 100%;
   height: var(--nav-height);
   z-index: 1000;
   background: transparent;
   border: 1px solid transparent;
   border-radius: 0;
   box-shadow: none;
-  backdrop-filter: none;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  will-change: width, top, border-radius, background, padding, box-shadow;
   transition:
-    top 0.35s ease,
-    left 0.35s ease,
-    width 0.35s ease,
-    height 0.35s ease,
-    padding 0.35s ease,
-    background 0.35s ease,
-    border-color 0.35s ease,
-    border-radius 0.35s ease,
-    box-shadow 0.35s ease,
-    backdrop-filter 0.35s ease,
-    transform 0.35s ease;
+    top 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    max-width 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    backdrop-filter 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    -webkit-backdrop-filter 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .navbar.scrolled {
   top: 0.85rem;
-  left: 50%;
-  transform: translateX(-50%);
   width: min(1120px, calc(100% - 1.75rem));
   height: auto;
   padding: 0.4rem 0.75rem;
@@ -118,7 +120,9 @@ ul {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   height: 100%;
-  transition: min-height 0.35s ease, padding 0.35s ease;
+  transition:
+    min-height 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .navbar.scrolled .navbar__inner {
@@ -144,7 +148,9 @@ ul {
   max-width: 170px;
   object-fit: contain;
   mix-blend-mode: lighten;
-  transition: height 0.35s ease, max-width 0.35s ease;
+  transition:
+    height 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    max-width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .navbar.scrolled .navbar__logo img {
@@ -157,7 +163,7 @@ ul {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  transition: gap 0.35s ease;
+  transition: gap 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .navbar.scrolled .navbar__links {
@@ -170,11 +176,11 @@ ul {
   font-weight: 500;
   color: var(--text);
   transition:
-    color 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease,
-    padding 0.25s ease,
-    border-radius 0.25s ease;
+    color 0.35s ease,
+    background 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   white-space: nowrap;
   padding-bottom: 4px;
   border: 1px solid transparent;
@@ -190,7 +196,7 @@ ul {
   background: var(--gold);
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 0.25s ease, opacity 0.2s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .navbar__links a:hover {
@@ -235,6 +241,7 @@ ul {
   align-items: center;
   justify-content: flex-end;
   gap: 0.75rem;
+  transition: gap 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .navbar.scrolled .navbar__actions {
@@ -251,6 +258,11 @@ ul {
   border-width: 1.5px;
   border-radius: 999px;
   box-shadow: none;
+  transition:
+    padding 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease,
+    transform 0.2s ease;
 }
 
 .lang-switch {
@@ -581,7 +593,7 @@ body.nav-locked {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: calc(var(--nav-height) + 2rem) 1.5rem 3rem;
+  padding: calc(var(--nav-height) + 2rem) 1.5rem 1.5rem;
   max-width: 980px;
   margin: 0 auto;
   flex: 1;
@@ -719,9 +731,11 @@ body.nav-locked {
   align-items: center;
   gap: 1.75rem;
   width: 100%;
-  padding: 1.35rem 0 2.5rem 1.5rem;
+  margin-top: -3.5rem;
+  padding: 0.35rem 0 1.35rem 1.5rem;
   border-top: none;
   background: transparent;
+  transform: translateY(-1.25rem);
 }
 
 .partners__title {
@@ -2927,7 +2941,9 @@ body.nav-locked {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    padding: 1.1rem 0 1.35rem;
+    margin-top: -2rem;
+    padding: 0.25rem 0 1rem;
+    transform: translateY(-0.75rem);
   }
 
   .partners__title {
