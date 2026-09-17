@@ -1320,6 +1320,7 @@ body.nav-locked {
 .ads-card {
   position: relative;
   width: 100%;
+  min-height: 280px;
 }
 
 .ads-card-bg {
@@ -1370,6 +1371,16 @@ body.nav-locked {
   background: radial-gradient(circle, rgba(253,224,71,0.1) 0%, rgba(251,191,36,0.04) 45%, transparent 70%);
 }
 
+.ads-image-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 .ads-image {
   position: relative;
   z-index: 1;
@@ -1377,13 +1388,16 @@ body.nav-locked {
   width: 100%;
   height: auto;
   max-height: 300px;
+  min-height: 180px;
   object-fit: contain;
   object-position: top;
   border-radius: 0.75rem;
+  background: #0a0a0a;
 }
 
 @media (min-width: 640px) {
-  .ads-image { max-height: 380px; }
+  .ads-image-wrap { min-height: 280px; }
+  .ads-image { max-height: 380px; min-height: 240px; }
 }
 
 .ads-content {
@@ -2836,9 +2850,19 @@ body.nav-locked {
 }
 
 /* Production failsafe: ads section must never stay invisible */
+.ads-section,
+.ads-section .ads-inner,
+.ads-section .ads-grid,
+.ads-section .ads-col,
+.ads-section .ads-card,
+.ads-section .ads-title,
+.ads-section .ads-content,
+.ads-section .ads-cta-wrap,
 .ads-section [data-animate] {
-  opacity: 1;
-  transform: none;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  pointer-events: auto;
 }
 
 [data-animate].is-visible.btn--gold:hover {

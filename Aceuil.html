@@ -322,17 +322,22 @@
 
   <section class="ads-section" id="ads">
     <div class="ads-inner">
-      <h2 class="ads-title" data-animate="fade-up" data-delay="0" data-i18n="ads.title">The Numbers Don’t Lie.</h2>
+      <h2 class="ads-title" data-i18n="ads.title">The Numbers Don’t Lie.</h2>
       <div class="ads-grid">
-        <div class="ads-col" data-animate="fade-up" data-delay="80">
+        <div class="ads-col">
           <div class="ads-card">
             <div class="ads-card-bg" aria-hidden="true"></div>
             <div class="ads-glow ads-glow-meta" aria-hidden="true"></div>
-            <img
-              class="ads-image"
-              src="src/images/Feceboock/Meta-Fr-%283%29.webp"
-              alt="Résultats Meta Ads"
-            />
+            <div class="ads-image-wrap">
+              <img
+                class="ads-image"
+                src="src/images/Feceboock/meta-ads-fr.webp"
+                onerror="this.onerror=null;this.src='src/images/Feceboock/meta-ads-fr.png'"
+                alt="Résultats Meta Ads"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
             <div class="ads-content">
               <h3 data-i18n="ads.meta.title">Meta Ads : volume de leads qualifiés et coût par lead optimisé.</h3>
               <p data-i18n="ads.meta.text">
@@ -344,15 +349,20 @@
           </div>
         </div>
 
-        <div class="ads-col" data-animate="fade-up" data-delay="200">
+        <div class="ads-col">
           <div class="ads-card">
             <div class="ads-card-bg" aria-hidden="true"></div>
             <div class="ads-glow ads-glow-google" aria-hidden="true"></div>
-            <img
-              class="ads-image"
-              src="src/images/Feceboock/Google-Ads-Fr-%282%29.webp"
-              alt="Résultats Google Ads"
-            />
+            <div class="ads-image-wrap">
+              <img
+                class="ads-image"
+                src="src/images/Feceboock/google-ads-fr.webp"
+                onerror="this.onerror=null;this.src='src/images/Feceboock/google-ads-fr.png'"
+                alt="Résultats Google Ads"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
             <div class="ads-content">
               <h3 data-i18n="ads.google.title">Google Ads : des conversions et un coût par acquisition maîtrisés.</h3>
               <p data-i18n="ads.google.text">
@@ -365,7 +375,7 @@
         </div>
       </div>
 
-      <div class="ads-cta-wrap" data-animate="fade-up" data-delay="280">
+      <div class="ads-cta-wrap">
         <a href="Contact.html" class="view-more-btn" aria-label="Parler à un expert" data-i18n-aria="ads.cta">
           <span>
             <span class="text-1" data-i18n="ads.cta">Parler à un expert</span>
