@@ -603,9 +603,38 @@ body.nav-locked {
 }
 
 .hero__mark {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.18em;
+  background-image: linear-gradient(
+    110deg,
+    #c47a2a 0%,
+    #f5d08a 22%,
+    #fff6df 38%,
+    #e8a54b 52%,
+    #f0c26b 68%,
+    #c47a2a 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, #c47a2a, #f5d08a, #e8a54b) 1;
+  padding-bottom: 0.06em;
+  filter: drop-shadow(0 0 14px rgba(232, 165, 75, 0.35));
+  animation: hero-mark-shine 4.5s ease-in-out infinite;
+}
+
+@keyframes hero-mark-shine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__mark {
+    animation: none;
+    background-position: 40% 50%;
+  }
 }
 
 .hero__subtitle {
@@ -728,6 +757,16 @@ body.nav-locked {
   filter: brightness(0) invert(1);
   opacity: 0.92;
   flex-shrink: 0;
+}
+
+.partners__group img.partners__logo--lg {
+  height: 58px;
+  max-width: 200px;
+}
+
+.partners__group img.partners__logo--raw {
+  filter: none;
+  opacity: 1;
 }
 
 @keyframes partners-loop {
@@ -2745,6 +2784,11 @@ body.nav-locked {
   .partners__group img {
     height: 28px;
     max-width: 110px;
+  }
+
+  .partners__group img.partners__logo--lg {
+    height: 42px;
+    max-width: 150px;
   }
 
   .why {
