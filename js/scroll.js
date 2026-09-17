@@ -1,6 +1,6 @@
 export function initScrollAnimations() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const elements = document.querySelectorAll('[data-animate]');
+  const elements = [...document.querySelectorAll('[data-animate]')];
 
   if (!elements.length) return;
 
@@ -9,8 +9,13 @@ export function initScrollAnimations() {
     if (delay) el.style.setProperty('--delay', delay);
   });
 
-  if (prefersReducedMotion) {
-    elements.forEach((el) => el.classList.add('is-visible'));
+  const reveal = (el) => {
+    if (el.classList.contains('is-visible')) return;
+    el.classList.add('is-visible');
+  };
+
+  if (prefersReducedMotion || typeof IntersectionObserver === 'undefined') {
+    elements.forEach(reveal);
     return;
   }
 
@@ -18,17 +23,37 @@ export function initScrollAnimations() {
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
+        reveal(entry.target);
         observer.unobserve(entry.target);
       });
     },
     {
-      threshold: 0.18,
-      rootMargin: '0px 0px -8% 0px'
+      threshold: 0.01,
+      rootMargin: '0px 0px -5% 0px'
     }
   );
 
+  const isInViewport = (el) => {
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    const vw = window.innerWidth || document.documentElement.clientWidth;
+    return rect.bottom > 0 && rect.right > 0 && rect.top < vh && rect.left < vw;
+  };
+
+  const revealVisibleFallback = () => {
+    elements.forEach((el) => {
+      if (el.classList.contains('is-visible')) return;
+      if (!isInViewport(el)) return;
+      reveal(el);
+      observer.unobserve(el);
+    });
+  };
+
   elements.forEach((el) => observer.observe(el));
+
+  window.addEventListener('load', revealVisibleFallback);
+  window.addEventListener('scroll', revealVisibleFallback, { passive: true });
+  revealVisibleFallback();
 }
 
 export function initScrollTop() {
