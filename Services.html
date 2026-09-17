@@ -217,92 +217,6 @@
     </section>
   </main>
 
-  <section class="faq" id="faq">
-    <div class="container faq__inner">
-      <div class="faq__header" data-animate="fade-up" data-delay="0">
-        <p class="faq__eyebrow" data-i18n="sfaq.eyebrow">FAQ Services</p>
-        <h2 class="faq__title" data-i18n="sfaq.title">Questions sur notre systÃÂ¨me</h2>
-        <p class="faq__sub" data-i18n="sfaq.sub">
-          Tout ce quÃ¢ÂÂil faut savoir sur notre processus dÃ¢ÂÂacquisition en 5 ÃÂ©tapes.
-        </p>
-      </div>
-
-      <div class="faq__list" data-animate="fade-up" data-delay="100">
-        <details class="faq__item">
-          <summary class="faq__question">
-            <span data-i18n="sfaq.q1">En quoi consiste votre systÃÂ¨me en 5 ÃÂ©tapes ?</span>
-            <span class="faq__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq__answer">
-            <p data-i18n="sfaq.a1">
-              Un parcours complet : benchmark &amp; contenu, campagnes Meta/Google, tunnel de qualification, CRM &amp; automatisation, puis analyse &amp; scaling. LÃ¢ÂÂobjectif : gÃÂ©nÃÂ©rer des leads qualifiÃÂ©s et des rendez-vous de faÃÂ§on prÃÂ©visible.
-            </p>
-          </div>
-        </details>
-
-        <details class="faq__item">
-          <summary class="faq__question">
-            <span data-i18n="sfaq.q2">Faut-il prendre les 5 ÃÂ©tapes ou peut-on commencer par une seule ?</span>
-            <span class="faq__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq__answer">
-            <p data-i18n="sfaq.a2">
-              Le systÃÂ¨me est conÃÂ§u pour fonctionner ensemble. Selon votre situation, on peut prioriser certaines ÃÂ©tapes au dÃÂ©marrage, puis complÃÂ©ter le parcours pour maximiser les rÃÂ©sultats.
-            </p>
-          </div>
-        </details>
-
-        <details class="faq__item">
-          <summary class="faq__question">
-            <span data-i18n="sfaq.q3">GÃÂ©rez-vous Meta Ads et Google Ads en interne ?</span>
-            <span class="faq__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq__answer">
-            <p data-i18n="sfaq.a3">
-              Oui. Nous structurons, lanÃÂ§ons et optimisons vos campagnes Meta &amp; Google pour gÃÂ©nÃÂ©rer des prospects qualifiÃÂ©s, avec un suivi du coÃÂ»t par lead et de la performance.
-            </p>
-          </div>
-        </details>
-
-        <details class="faq__item">
-          <summary class="faq__question">
-            <span data-i18n="sfaq.q4">Comment fonctionne le tunnel de qualification ?</span>
-            <span class="faq__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq__answer">
-            <p data-i18n="sfaq.a4">
-              Il filtre et oriente les leads vers des RDV admissions structurÃÂ©s. LÃ¢ÂÂidÃÂ©e : moins de leads froids, plus de conversations avec des prospects rÃÂ©ellement intÃÂ©ressÃÂ©s.
-            </p>
-          </div>
-        </details>
-
-        <details class="faq__item">
-          <summary class="faq__question">
-            <span data-i18n="sfaq.q5">Mettez-vous en place un CRM et des automatisations ?</span>
-            <span class="faq__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq__answer">
-            <p data-i18n="sfaq.a5">
-              Oui. Suivi des leads, relances automatisÃÂ©es et pipeline dÃ¢ÂÂinscription : chaque prospect arrive au bon endroit et est traitÃÂ© rapidement.
-            </p>
-          </div>
-        </details>
-
-        <details class="faq__item">
-          <summary class="faq__question">
-            <span data-i18n="sfaq.q6">Comment mesurez-vous et scalez les rÃÂ©sultats ?</span>
-            <span class="faq__icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq__answer">
-            <p data-i18n="sfaq.a6">
-              Analyse continue des campagnes, des leads et des performances commerciales. On optimise ce qui marche, on coupe ce qui ne convertit pas, puis on scale selon vos objectifs.
-            </p>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
   <section class="cta" id="apply">
     <div class="container">
       <div class="cta__card" data-animate="fade-up" data-delay="0">
@@ -401,14 +315,6 @@
     initScrollAnimations();
     initScrollTop();
 
-    document.querySelectorAll('.faq__item').forEach((item) => {
-      item.addEventListener('toggle', () => {
-        if (!item.open) return;
-        document.querySelectorAll('.faq__item').forEach((other) => {
-          if (other !== item) other.open = false;
-        });
-      });
-    });
 
     import('./js/Grainient.js')
       .then(({ initGrainient }) => {
