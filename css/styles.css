@@ -2835,6 +2835,12 @@ body.nav-locked {
   transform: translate(0, 0);
 }
 
+/* Production failsafe: ads section must never stay invisible */
+.ads-section [data-animate] {
+  opacity: 1;
+  transform: none;
+}
+
 [data-animate].is-visible.btn--gold:hover {
   transform: scale(1.02);
 }

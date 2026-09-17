@@ -10,50 +10,81 @@ export function initScrollAnimations() {
   });
 
   const reveal = (el) => {
-    if (el.classList.contains('is-visible')) return;
+    if (!el || el.classList.contains('is-visible')) return;
     el.classList.add('is-visible');
   };
 
+  const revealAll = () => elements.forEach(reveal);
+
   if (prefersReducedMotion || typeof IntersectionObserver === 'undefined') {
-    elements.forEach(reveal);
+    revealAll();
     return;
   }
 
+  // Tall cards (ads images) can never reach a high intersection ratio —
+  // threshold 0 + positive rootMargin so any pixel near the viewport reveals.
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
+        if (!entry.isIntersecting && entry.intersectionRatio <= 0) return;
         reveal(entry.target);
         observer.unobserve(entry.target);
       });
     },
     {
-      threshold: 0.01,
-      rootMargin: '0px 0px -5% 0px'
+      threshold: [0, 0.01, 0.05],
+      rootMargin: '120px 0px 120px 0px'
     }
   );
 
-  const isInViewport = (el) => {
+  const isNearViewport = (el) => {
     const rect = el.getBoundingClientRect();
     const vh = window.innerHeight || document.documentElement.clientHeight;
     const vw = window.innerWidth || document.documentElement.clientWidth;
-    return rect.bottom > 0 && rect.right > 0 && rect.top < vh && rect.left < vw;
+    const pad = 160;
+    return (
+      rect.bottom > -pad &&
+      rect.right > 0 &&
+      rect.top < vh + pad &&
+      rect.left < vw
+    );
   };
 
-  const revealVisibleFallback = () => {
+  const revealNear = () => {
     elements.forEach((el) => {
       if (el.classList.contains('is-visible')) return;
-      if (!isInViewport(el)) return;
+      if (!isNearViewport(el)) return;
       reveal(el);
       observer.unobserve(el);
     });
   };
 
+  // #ads: force-reveal entire section when it approaches viewport
+  const adsSection = document.getElementById('ads');
+  if (adsSection) {
+    const adsObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting && entry.intersectionRatio <= 0) return;
+        adsSection.querySelectorAll('[data-animate]').forEach((el) => {
+          reveal(el);
+          observer.unobserve(el);
+        });
+        adsObserver.disconnect();
+      },
+      { threshold: 0, rootMargin: '200px 0px 200px 0px' }
+    );
+    adsObserver.observe(adsSection);
+  }
+
   elements.forEach((el) => observer.observe(el));
 
-  window.addEventListener('load', revealVisibleFallback);
-  window.addEventListener('scroll', revealVisibleFallback, { passive: true });
-  revealVisibleFallback();
+  window.addEventListener('load', revealNear);
+  window.addEventListener('scroll', revealNear, { passive: true });
+  window.addEventListener('resize', revealNear, { passive: true });
+  revealNear();
+
+  // Last-resort failsafe: never leave content stuck at opacity 0
+  window.setTimeout(revealAll, 2500);
 }
 
 export function initScrollTop() {
