@@ -7,7 +7,7 @@ const translations = {
     'nav.portfolio': 'Portfolio',
     'nav.about': 'À propos',
     'nav.contact': 'Contact',
-    'nav.apply': 'Postuler',
+    'nav.apply': 'Parler à un expert',
     'nav.open': 'Ouvrir le menu',
     'nav.close': 'Fermer le menu',
 
@@ -242,7 +242,7 @@ const translations = {
     'nav.portfolio': 'Portfolio',
     'nav.about': 'About Us',
     'nav.contact': 'Contact',
-    'nav.apply': 'Apply Now',
+    'nav.apply': 'Talk to an expert',
     'nav.open': 'Open menu',
     'nav.close': 'Close menu',
 
