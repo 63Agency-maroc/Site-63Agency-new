@@ -37,8 +37,8 @@
   --sub-size: clamp(1.05rem, 1.8vw, 1.2rem);
   --sub-lh: 1.7;
 
-  --section-pad-y: 3.5rem;
-  --section-pad-y-lg: 4.5rem;
+  --section-pad-y: 2.15rem;
+  --section-pad-y-lg: 2.75rem;
 }
 
 html {
@@ -630,12 +630,14 @@ body.nav-locked {
 
 .hero__eyebrow {
   font-family: var(--sub-font);
-  font-size: var(--sub-size);
+  font-size: clamp(0.95rem, 1.35vw, 1.15rem);
   font-weight: var(--sub-weight);
   line-height: var(--sub-lh);
   color: rgba(255, 255, 255, 0.78);
-  max-width: 640px;
-  margin: 0 0 1.35rem;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto 1.35rem;
+  white-space: nowrap;
 }
 
 .hero__title {
@@ -817,8 +819,8 @@ body.nav-locked {
   justify-content: center;
   gap: clamp(0.75rem, 2vw, 1.35rem);
   width: min(720px, calc(100% - 2.5rem));
-  margin: -0.35rem auto;
-  padding: 0.85rem 0;
+  margin: -0.15rem auto;
+  padding: 0.45rem 0;
   background: transparent;
   pointer-events: none;
 }
@@ -1036,12 +1038,15 @@ body.nav-locked {
 .statement > .container {
   position: relative;
   z-index: 3;
+  width: min(1080px, calc(100% - 4.5rem));
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .statement__intro {
   text-align: center;
   max-width: 900px;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 1.35rem;
 }
 
 .statement__title {
@@ -1052,7 +1057,7 @@ body.nav-locked {
   letter-spacing: var(--title-tracking);
   color: #ffffff;
   text-align: center;
-  margin: 0 auto 1.35rem;
+  margin: 0 auto 0.75rem;
 }
 
 .statement__text {
@@ -1069,10 +1074,13 @@ body.nav-locked {
 .services-panel {
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 24px;
-  padding: 2.1rem 1.4rem 1.4rem;
+  border-radius: 20px;
+  padding: 1.35rem 1.4rem 1.15rem;
   overflow: hidden;
   background: #070707;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .services-panel__accent {
@@ -1112,13 +1120,13 @@ body.nav-locked {
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.35rem;
+  gap: 1rem;
 }
 
 .service-card {
   position: relative;
-  padding: 3rem 2.25rem 2.5rem;
-  border-radius: 22px;
+  padding: 1.55rem 2rem 1.35rem;
+  border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
   background:
@@ -1162,9 +1170,9 @@ body.nav-locked {
 }
 
 .service-card__icon {
-  width: 78px;
-  height: 78px;
-  margin: 0.35rem auto 1.1rem;
+  width: 58px;
+  height: 58px;
+  margin: 0.2rem auto 0.75rem;
 }
 
 .service-card__icon svg {
@@ -1175,12 +1183,12 @@ body.nav-locked {
 
 .service-card__title {
   font-family: var(--title-font);
-  font-size: clamp(1.55rem, 2.8vw, 1.95rem);
+  font-size: clamp(1.4rem, 2.5vw, 1.75rem);
   font-weight: var(--title-weight);
   color: #fff;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.4rem;
   letter-spacing: var(--title-tracking);
-  line-height: var(--title-lh);
+  line-height: 1.15;
 }
 
 .service-card__desc {
@@ -1211,9 +1219,9 @@ body.nav-locked {
 
 .service-card__num {
   display: block;
-  margin: 0.2rem auto 0.85rem;
+  margin: 0 auto 0.4rem;
   font-family: var(--font-sans);
-  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -1225,11 +1233,11 @@ body.nav-locked {
 
 .services-grid--system .service-card__title {
   font-size: clamp(1.2rem, 2vw, 1.45rem);
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.35rem;
 }
 
 .services-grid--system .service-card__desc {
-  margin-bottom: 1.1rem;
+  margin-bottom: 0.55rem;
 }
 
 @media (min-width: 720px) {
@@ -1251,18 +1259,18 @@ body.nav-locked {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 0.35rem;
 }
 
 .service-card__tags span {
   display: inline-flex;
   align-items: center;
-  padding: 0.4rem 0.7rem;
+  padding: 0.28rem 0.55rem;
   border-radius: 999px;
   border: 1px solid rgba(232, 165, 75, 0.28);
   background: rgba(232, 165, 75, 0.08);
   color: #f0d39a;
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.01em;
 }
@@ -1272,7 +1280,7 @@ body.nav-locked {
 .certified {
   position: relative;
   overflow: hidden;
-  padding: 4rem 0 4.25rem;
+  padding: 2.75rem 0 3rem;
   background: #000;
 }
 
@@ -1396,7 +1404,7 @@ body.nav-locked {
 .certified__item {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.9rem;
   min-width: 0;
 }
@@ -1409,34 +1417,25 @@ body.nav-locked {
   place-items: center;
 }
 
-.certified__mark--white,
+.certified__mark--meta,
 .certified__mark--google {
-  width: 200px;
-  height: 76px;
-  padding: 0.4rem 0.7rem;
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
+  width: 160px;
+  height: 72px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
   place-items: center;
 }
 
-.certified__mark--white img {
-  width: auto;
-  max-width: 100%;
-  height: 100%;
-  margin-top: 0;
-  object-fit: contain;
-  object-position: center center;
-}
-
+.certified__mark--meta img,
 .certified__mark--google img {
   width: 100%;
   height: 100%;
-  max-width: none;
+  max-width: 100%;
   object-fit: contain;
-  object-position: left center;
-  transform: scale(1.18);
-  transform-origin: left center;
+  object-position: center center;
+  transform: none;
 }
 
 .certified__mark--tiktok {
@@ -1491,6 +1490,12 @@ body.nav-locked {
 }
 
 @media (max-width: 1100px) {
+  .hero__eyebrow {
+    white-space: normal;
+    width: 100%;
+    max-width: 36rem;
+  }
+
   .certified__logos {
     grid-template-columns: 1fr;
     column-gap: 0;
@@ -1503,10 +1508,10 @@ body.nav-locked {
     max-width: 420px;
   }
 
-  .certified__mark--white,
+  .certified__mark--meta,
   .certified__mark--google {
-    width: min(200px, 58vw);
-    height: 68px;
+    width: min(140px, 48vw);
+    height: 64px;
   }
 
   .certified__mark--tiktok {
@@ -1550,11 +1555,11 @@ body.nav-locked {
     max-width: 100%;
   }
 
-  .certified__mark--white,
+  .certified__mark--meta,
   .certified__mark--google {
-    width: min(170px, 52vw);
-    height: 60px;
-    padding: 0.3rem 0.55rem;
+    width: min(120px, 42vw);
+    height: 52px;
+    padding: 0;
   }
 
   .certified__mark--tiktok {
@@ -1783,16 +1788,24 @@ body.nav-locked {
   font-size: 15px;
   line-height: 1;
   padding: 15.5px 28px;
-  border-radius: 10px;
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
   letter-spacing: -0.01em;
-  color: #fff !important;
-  background: #1a1b1e;
-  border: 1.5px solid #ffffff;
+  color: #000 !important;
+  background: #fff;
+  border: 1.5px solid #fff;
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.view-more-btn:hover {
+  background: #000;
+  color: #fff !important;
+  border-color: #fff;
+  transform: scale(1.02);
 }
 
 .view-more-btn > span {
@@ -1877,7 +1890,7 @@ body.nav-locked {
     radial-gradient(ellipse 40% 45% at 10% 80%, rgba(255, 255, 255, 0.03), transparent 50%),
     radial-gradient(ellipse 40% 45% at 90% 70%, rgba(232, 165, 75, 0.05), transparent 50%),
     #000;
-  padding: var(--section-pad-y-lg) 0;
+  padding: 2.25rem 0 2.5rem;
   overflow: hidden;
 }
 
@@ -1916,7 +1929,7 @@ body.nav-locked {
   text-align: center;
   color: #fff;
   letter-spacing: var(--title-tracking);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.35rem;
 }
 
 .testimonials__marquee {
@@ -1961,8 +1974,8 @@ body.nav-locked {
   position: relative;
   flex: 0 0 340px;
   width: 340px;
-  padding: 1.75rem 1.6rem 1.85rem;
-  border-radius: 18px;
+  padding: 1.15rem 1.45rem 1.2rem;
+  border-radius: 16px;
   background: #000000;
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
@@ -1988,13 +2001,13 @@ body.nav-locked {
 .testimonial__header {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 0.85rem;
+  gap: 0.75rem;
+  margin-bottom: 0.55rem;
 }
 
 .testimonial__avatar {
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -2029,17 +2042,17 @@ body.nav-locked {
 
 .testimonial__stars {
   color: var(--gold);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   letter-spacing: 0.12em;
   line-height: 1;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.5rem;
 }
 
 .testimonial__text {
   font-family: var(--sub-font);
-  font-size: var(--sub-size);
+  font-size: clamp(0.92rem, 1.5vw, 1.05rem);
   font-weight: var(--sub-weight);
-  line-height: var(--sub-lh);
+  line-height: 1.55;
   color: #e0e0e0;
   flex: 1;
   margin: 0;
@@ -2661,7 +2674,7 @@ body.nav-locked {
     radial-gradient(ellipse 55% 45% at 80% 20%, var(--glow-gold-soft), transparent 55%),
     radial-gradient(ellipse 50% 40% at 10% 90%, rgba(255, 255, 255, 0.03), transparent 50%),
     #000;
-  padding: var(--section-pad-y-lg) 0;
+  padding: 2.25rem 0 2.5rem;
   overflow: hidden;
 }
 
@@ -2694,7 +2707,7 @@ body.nav-locked {
 
 .faq__header {
   text-align: center;
-  margin-bottom: 2.25rem;
+  margin-bottom: 1.35rem;
 }
 
 .faq__eyebrow {
@@ -2703,7 +2716,7 @@ body.nav-locked {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold);
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.45rem;
 }
 
 .faq__title {
@@ -2713,7 +2726,7 @@ body.nav-locked {
   line-height: var(--title-lh);
   letter-spacing: var(--title-tracking);
   color: #fff;
-  margin: 0 0 0.7rem;
+  margin: 0 0 0.45rem;
 }
 
 .faq__sub {
@@ -2741,13 +2754,13 @@ body.nav-locked {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.25rem 0.15rem;
+  padding: 0.85rem 0.15rem;
   cursor: pointer;
   font-family: var(--title-font);
-  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
   font-weight: var(--title-weight);
   letter-spacing: var(--title-tracking);
-  line-height: 1.3;
+  line-height: 1.25;
   color: #fff;
   transition: color 0.2s ease;
 }
@@ -2803,26 +2816,30 @@ body.nav-locked {
 }
 
 .faq__answer {
-  padding: 0 1.5rem 1.25rem 0.15rem;
+  padding: 0 1.5rem 0.85rem 0.15rem;
 }
 
 .faq__answer p {
   margin: 0;
   font-family: var(--sub-font);
-  font-size: var(--sub-size);
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
   font-weight: var(--sub-weight);
-  line-height: var(--sub-lh);
+  line-height: 1.55;
   color: rgba(255, 255, 255, 0.78);
   max-width: 42rem;
 }
 
 @media (max-width: 720px) {
   .faq {
-    padding: 3rem 0;
+    padding: 2rem 0 2.25rem;
+  }
+
+  .faq__header {
+    margin-bottom: 1.1rem;
   }
 
   .faq__question {
-    padding: 1.1rem 0;
+    padding: 0.75rem 0;
   }
 }
 
@@ -2916,7 +2933,7 @@ body.nav-locked {
   font-weight: var(--title-weight);
   line-height: var(--title-lh);
   letter-spacing: var(--title-tracking);
-  color: #fff;
+  color: var(--gold);
   margin-bottom: 1rem;
 }
 
@@ -3418,25 +3435,31 @@ body.nav-locked {
   }
 
   .statement {
-    padding: 3.5rem 0 5rem;
+    padding: 2.5rem 0 3.25rem;
+  }
+
+  .statement > .container {
+    width: min(100%, calc(100% - 2rem));
   }
 
   .statement__intro {
     max-width: 100%;
+    margin-bottom: 1.35rem;
   }
 
   .services-panel {
-    padding: 2rem 1rem 1rem;
-    border-radius: 20px;
+    padding: 1.15rem 1.1rem 1rem;
+    border-radius: 18px;
+    max-width: 100%;
   }
 
   .services-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.85rem;
   }
 
   .service-card {
-    padding: 2.4rem 1.5rem 2rem;
+    padding: 1.35rem 1.4rem 1.2rem;
   }
 
   .ads-inner {
@@ -3457,7 +3480,11 @@ body.nav-locked {
   }
 
   .testimonials {
-    padding: 4rem 0 5.5rem;
+    padding: 2rem 0 2.35rem;
+  }
+
+  .testimonials__title {
+    margin-bottom: 1.1rem;
   }
 
   .testimonials__marquee {
@@ -3482,6 +3509,7 @@ body.nav-locked {
   .testimonial {
     flex: 0 0 min(300px, 78vw);
     width: min(300px, 78vw);
+    padding: 1rem 1.2rem 1.05rem;
   }
 
   .cta__card {
@@ -3544,6 +3572,12 @@ body.nav-locked {
   .hero__note,
   .hero__eyebrow {
     font-size: 0.98rem;
+  }
+
+  .hero__eyebrow {
+    white-space: normal;
+    width: 100%;
+    max-width: 100%;
   }
 
   .partners__group img.partners__logo--lg {
