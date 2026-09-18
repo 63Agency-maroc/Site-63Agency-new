@@ -247,7 +247,7 @@ const translations = {
     'nav.close': 'Close menu',
 
     'hero.eyebrow': 'Lead generation agency specialized in qualified prospects for service businesses.',
-    'hero.title': 'Generate between <span class="hero__mark">150 and 14,000</span><br><span class="hero__mark">qualified</span> prospects every month.',
+    'hero.title': 'Generate between <span class="hero__mark">150 and 14,000</span><br>prospects <span class="hero__mark">qualified</span> every month.',
     'hero.subtitle': 'Leads ready to book a meeting, matched to your capacity and goals.',
     'hero.note': 'Education, B2B and B2C services, real estate.',
     'hero.cta': 'Talk to an expert',

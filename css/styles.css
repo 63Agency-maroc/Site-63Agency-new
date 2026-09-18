@@ -621,6 +621,13 @@ body.nav-locked {
   justify-content: flex-start;
 }
 
+.hero__eyebrow,
+.hero__subtitle,
+.hero__note {
+  text-align: center;
+  width: 100%;
+}
+
 .hero__eyebrow {
   font-family: var(--sub-font);
   font-size: var(--sub-size);
@@ -638,14 +645,18 @@ body.nav-locked {
   line-height: var(--title-lh);
   letter-spacing: var(--title-tracking);
   color: #fff;
-  margin: 0 0 1.15rem;
+  margin: 0 auto 1.15rem;
   max-width: 720px;
+  width: 100%;
+  text-align: center;
+  text-wrap: balance;
   text-shadow:
     0 2px 24px rgba(0, 0, 0, 0.75),
     0 0 40px rgba(0, 0, 0, 0.45);
 }
 
 .hero__mark {
+  display: inline;
   background-image: linear-gradient(
     165deg,
     #fdd885 0%,
