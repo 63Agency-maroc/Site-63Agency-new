@@ -4310,7 +4310,7 @@ body.nav-locked {
   z-index: 4;
   width: 100%;
   max-width: min(820px, 100%);
-  margin-top: clamp(0.5rem, 2vh, 1.25rem);
+  margin: clamp(0.5rem, 2vh, 1.25rem) auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
