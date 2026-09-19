@@ -1419,8 +1419,8 @@ body.nav-locked {
 
 .certified__mark--meta,
 .certified__mark--google {
-  width: 160px;
-  height: 72px;
+  width: 130px;
+  height: 58px;
   padding: 0;
   background: transparent;
   border-radius: 0;
@@ -1510,8 +1510,8 @@ body.nav-locked {
 
   .certified__mark--meta,
   .certified__mark--google {
-    width: min(140px, 48vw);
-    height: 64px;
+    width: min(115px, 42vw);
+    height: 52px;
   }
 
   .certified__mark--tiktok {
@@ -1557,8 +1557,8 @@ body.nav-locked {
 
   .certified__mark--meta,
   .certified__mark--google {
-    width: min(120px, 42vw);
-    height: 52px;
+    width: min(100px, 38vw);
+    height: 44px;
     padding: 0;
   }
 
@@ -1674,51 +1674,40 @@ body.nav-locked {
   right: 0;
   top: 9.5rem;
   bottom: 0;
-  border-radius: 22px;
+  border-radius: 18px;
   z-index: 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 182, 75, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   background:
-    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(255, 182, 75, 0.22), transparent 58%),
-    radial-gradient(ellipse 55% 45% at 12% 85%, rgba(251, 158, 45, 0.12), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 90% 70%, rgba(253, 216, 133, 0.08), transparent 55%),
-    linear-gradient(165deg, #16120c 0%, #0a0907 48%, #100e0a 100%);
-  box-shadow:
-    0 18px 48px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 182, 75, 0.08) inset,
-    0 0 40px rgba(255, 182, 75, 0.08);
+    radial-gradient(ellipse 80% 70% at 30% 55%, rgba(255, 255, 255, 0.045), transparent 60%),
+    radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.05) 0 1px, transparent 1.5px),
+    linear-gradient(145deg, #161616 0%, #0c0c0c 55%, #101010 100%);
+  background-size: auto, 18px 18px, auto;
+  box-shadow: none;
+  transition: border-color 0.25s ease;
+}
+
+.ads-card:hover .ads-card-bg {
+  border-color: rgba(232, 165, 75, 0.3);
 }
 
 .ads-card-bg::before {
   content: '';
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 182, 75, 0.16) 0%,
-      transparent 28%,
-      transparent 72%,
-      rgba(255, 182, 75, 0.1) 100%
-    );
+  top: 12px;
+  right: 14px;
+  width: 90px;
+  height: 70px;
   pointer-events: none;
+  opacity: 0.45;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.55) 0.8px, transparent 1px);
+  background-size: 10px 10px;
+  mask-image: radial-gradient(ellipse at top right, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at top right, black 20%, transparent 70%);
 }
 
 .ads-card-bg::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 182, 75, 0.55),
-    transparent
-  );
-  pointer-events: none;
+  display: none;
 }
 
 .ads-card-bg .services-panel__accent {
@@ -1770,7 +1759,7 @@ body.nav-locked {
 @media (min-width: 640px) {
   .ads-card-bg {
     top: 11.25rem;
-    border-radius: 22px;
+    border-radius: 18px;
   }
 
   .ads-image-wrap {
@@ -1818,8 +1807,12 @@ body.nav-locked {
 }
 
 .ads-emphasis {
-  font-weight: 700 !important;
-  color: var(--gold-light) !important;
+  font-family: var(--title-font) !important;
+  font-size: clamp(1.15rem, 2vw, 1.4rem) !important;
+  font-weight: var(--title-weight) !important;
+  line-height: var(--title-lh) !important;
+  letter-spacing: var(--title-tracking) !important;
+  color: #fff !important;
   margin-top: auto !important;
   padding-top: 0.75rem;
 }
@@ -2920,22 +2913,40 @@ body.nav-locked {
 .cta__card {
   position: relative;
   overflow: hidden;
-  border-radius: 22px;
-  min-height: 320px;
+  border-radius: 18px;
+  min-height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 182, 75, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   background:
-    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(255, 182, 75, 0.22), transparent 58%),
-    radial-gradient(ellipse 55% 45% at 12% 85%, rgba(251, 158, 45, 0.12), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 90% 70%, rgba(253, 216, 133, 0.08), transparent 55%),
-    radial-gradient(ellipse 80% 70% at 30% 55%, rgba(255, 255, 255, 0.04), transparent 60%),
-    linear-gradient(165deg, #16120c 0%, #0a0907 48%, #100e0a 100%);
-  box-shadow:
-    0 18px 48px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 182, 75, 0.08) inset,
-    0 0 40px rgba(255, 182, 75, 0.08);
+    radial-gradient(ellipse 80% 70% at 30% 55%, rgba(255, 255, 255, 0.045), transparent 60%),
+    radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.05) 0 1px, transparent 1.5px),
+    linear-gradient(145deg, #161616 0%, #0c0c0c 55%, #101010 100%);
+  background-size: auto, 18px 18px, auto;
+  box-shadow: none;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.cta__card:hover {
+  border-color: rgba(232, 165, 75, 0.3);
+  transform: translateY(-3px);
+}
+
+.cta__card::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 90px;
+  height: 70px;
+  pointer-events: none;
+  opacity: 0.45;
+  z-index: 1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.55) 0.8px, transparent 1px);
+  background-size: 10px 10px;
+  mask-image: radial-gradient(ellipse at top right, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at top right, black 20%, transparent 70%);
 }
 
 .cta__card-bg {
@@ -2947,35 +2958,9 @@ body.nav-locked {
   border-radius: inherit;
 }
 
-.cta__card-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 182, 75, 0.14) 0%,
-      transparent 28%,
-      transparent 72%,
-      rgba(255, 182, 75, 0.1) 100%
-    );
-  pointer-events: none;
-}
-
+.cta__card-bg::before,
 .cta__card-bg::after {
-  content: '';
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  width: 110px;
-  height: 80px;
-  pointer-events: none;
-  opacity: 0.4;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px);
-  background-size: 12px 12px;
-  mask-image: linear-gradient(to bottom left, black, transparent 75%);
-  -webkit-mask-image: linear-gradient(to bottom left, black, transparent 75%);
+  display: none;
 }
 
 .cta__card-bg .services-panel__accent {
@@ -2988,15 +2973,15 @@ body.nav-locked {
 }
 
 .cta__card-bg .service-card__dash {
-  top: 18px;
-  left: 22px;
+  top: 16px;
+  left: 20px;
 }
 
 .cta__content {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 3rem 1.75rem 2.75rem;
+  padding: 2.75rem 2rem 2.5rem;
   max-width: 820px;
 }
 
@@ -3006,8 +2991,8 @@ body.nav-locked {
   font-weight: var(--title-weight);
   line-height: var(--title-lh);
   letter-spacing: var(--title-tracking);
-  color: var(--gold);
-  margin-bottom: 1rem;
+  color: #fff;
+  margin-bottom: 0.85rem;
 }
 
 .cta__text {
@@ -3015,9 +3000,9 @@ body.nav-locked {
   font-size: var(--sub-size);
   font-weight: var(--sub-weight);
   line-height: var(--sub-lh);
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.72);
   max-width: 620px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1.75rem;
 }
 
 .footer {
@@ -4239,20 +4224,21 @@ body.nav-locked {
 .about-page {
   padding-top: var(--nav-height);
   background: #000;
-  overflow: clip;
+  overflow: visible;
 }
 
 .about-scroll {
   --about-progress: 0;
   position: relative;
-  min-height: 420vh;
+  min-height: auto;
   width: 100%;
   color: #fff;
   background:
     radial-gradient(ellipse 55% 40% at 70% 12%, rgba(255, 182, 75, 0.14), transparent 58%),
     radial-gradient(ellipse 40% 35% at 15% 55%, rgba(255, 255, 255, 0.04), transparent 55%),
     #000;
-  overflow: hidden;
+  overflow: visible;
+  padding-bottom: 2rem;
 }
 
 .about-scroll__stage {
@@ -4320,48 +4306,50 @@ body.nav-locked {
   position: relative;
   z-index: 2;
   width: 100%;
-  min-height: 210vh;
-  margin-top: clamp(3rem, 10vh, 7rem);
-  padding: 2rem 0 4rem;
+  min-height: 0;
+  margin-top: clamp(2.5rem, 7vh, 4.5rem);
+  padding: 1rem 0 2.5rem;
+  overflow: visible;
+}
+
+.about-scroll__spine {
+  position: absolute;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  left: 50%;
+  z-index: 0;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 182, 75, 0.45) 12%,
+    rgba(255, 182, 75, 0.35) 88%,
+    transparent
+  );
+  pointer-events: none;
 }
 
 .about-scroll__stroke {
-  position: absolute;
-  top: -4%;
-  left: 50%;
-  z-index: 0;
-  width: min(780px, 95vw);
-  height: auto;
-  color: var(--gold);
-  pointer-events: none;
-  overflow: visible;
-  transform: translateX(-42%);
-  opacity: 0.95;
-}
-
-.about-scroll__stroke path {
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  will-change: stroke-dashoffset;
+  display: none;
 }
 
 .about-rail {
   position: relative;
   z-index: 2;
-  width: min(340px, 88%);
-  margin: 12vh 0;
-  padding: 1.35rem 1.4rem 1.5rem;
+  width: min(400px, 90%);
+  margin: 2.75rem 0;
+  padding: 1.45rem 1.5rem 1.6rem;
   border: 1px solid rgba(255, 182, 75, 0.22);
   background:
     linear-gradient(160deg, rgba(22, 22, 22, 0.92) 0%, rgba(8, 8, 8, 0.88) 100%);
   backdrop-filter: blur(8px);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
   opacity: 0;
-  transform: translate3d(0, 36px, 0);
+  transform: translate3d(0, 28px, 0);
   transition:
-    opacity 0.55s ease,
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.55s ease var(--about-delay, 0ms),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) var(--about-delay, 0ms);
 }
 
 .about-rail.is-visible {
@@ -4383,22 +4371,41 @@ body.nav-locked {
   border-right: 2px solid var(--gold);
 }
 
+.about-rail--hook {
+  width: min(440px, 92%);
+  border-color: rgba(255, 182, 75, 0.4);
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(255, 182, 75, 0.12), transparent 55%),
+    linear-gradient(160deg, rgba(28, 22, 12, 0.95) 0%, rgba(8, 8, 8, 0.9) 100%);
+}
+
+.about-rail__label,
 .about-rail__index {
   display: block;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.45rem;
   font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--gold);
 }
 
-.about-rail__title {
+.about-rail__step {
   margin: 0 0 0.55rem;
-  font-family: var(--title-font);
-  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
   font-weight: 600;
-  line-height: 1.15;
+  letter-spacing: 0.04em;
+  color: rgba(255, 182, 75, 0.85);
+}
+
+.about-rail__title {
+  margin: 0 0 0.65rem;
+  font-family: var(--title-font);
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.18;
   letter-spacing: -0.03em;
   color: #fff;
 }
@@ -4408,16 +4415,20 @@ body.nav-locked {
   font-family: var(--sub-font);
   font-size: 0.98rem;
   font-weight: 500;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.74);
 }
 
 .about-scroll__panel {
   position: relative;
   z-index: 3;
   width: 100%;
-  margin-top: clamp(4rem, 12vh, 8rem);
-  transform: translate3d(0, calc(90vh - (var(--about-progress) * 90vh)), 0);
+  margin-top: clamp(2.5rem, 6vh, 4rem);
+  transform: translate3d(0, 24px, 0);
+  opacity: 0;
+  transition:
+    opacity 0.6s ease var(--about-delay, 0ms),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--about-delay, 0ms);
   border-radius: 2rem;
   padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 2.5rem) clamp(2.5rem, 5vw, 3.75rem);
   background:
@@ -4432,14 +4443,30 @@ body.nav-locked {
   align-items: stretch;
 }
 
+.about-scroll__panel.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.about-scroll__panel-eyebrow {
+  margin: 0 0 0.85rem;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
 .about-scroll__mega {
   margin: 0;
   text-align: center;
   font-family: var(--title-font);
-  font-size: clamp(2.8rem, 14vw, 12rem);
+  font-size: clamp(2.4rem, 9vw, 6.5rem);
   font-weight: 700;
-  line-height: 0.88;
-  letter-spacing: -0.06em;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
   color: #fff;
 }
 
@@ -4450,34 +4477,8 @@ body.nav-locked {
   -webkit-text-fill-color: transparent;
 }
 
-.about-scroll__meta {
-  margin-top: clamp(2.5rem, 8vw, 5rem);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1.5rem 2rem;
-  text-transform: uppercase;
-}
-
-.about-scroll__meta-col {
-  display: flex;
-  flex: 1 1 240px;
-  justify-content: space-between;
-  gap: 1.5rem 2.5rem;
-}
-
-.about-scroll__meta p {
-  margin: 0;
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.7);
-}
-
 .about-scroll__lead {
-  margin: clamp(2rem, 5vw, 3rem) auto 0;
+  margin: clamp(1.75rem, 4vw, 2.5rem) auto 0;
   max-width: 42rem;
   text-align: center;
   font-family: var(--sub-font);
@@ -4492,8 +4493,8 @@ body.nav-locked {
   margin: 2.5rem 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.65rem;
 }
 
 .about-scroll__steps li {
@@ -4526,18 +4527,19 @@ body.nav-locked {
 
 @media (max-width: 900px) {
   .about-scroll {
-    min-height: 380vh;
+    min-height: auto;
   }
 
   .about-scroll__journey {
-    min-height: 180vh;
+    min-height: 0;
+  }
+
+  .about-scroll__spine {
+    display: none;
   }
 
   .about-scroll__stroke {
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(640px, 120vw);
-    opacity: 0.55;
+    display: none;
   }
 
   .about-scroll__steps {
@@ -4545,8 +4547,8 @@ body.nav-locked {
   }
 
   .about-rail {
-    width: min(100%, 420px);
-    margin: 8vh auto;
+    width: min(100%, 440px);
+    margin: 1.75rem auto;
   }
 
   .about-rail--left,
@@ -4558,7 +4560,7 @@ body.nav-locked {
 
 @media (max-width: 640px) {
   .about-scroll {
-    min-height: 340vh;
+    min-height: auto;
   }
 
   .about-scroll__stage {
@@ -4569,13 +4571,8 @@ body.nav-locked {
     font-size: clamp(2.2rem, 11vw, 3.1rem);
   }
 
-  .about-scroll__stroke {
-    opacity: 0.4;
-  }
-
   .about-scroll__panel {
     border-radius: 1.35rem;
-    transform: translate3d(0, calc(70vh - (var(--about-progress) * 70vh)), 0);
   }
 
   .about-scroll__meta-col {
@@ -4589,10 +4586,7 @@ body.nav-locked {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .about-scroll__panel {
-    transform: none;
-  }
-
+  .about-scroll__panel,
   .about-rail {
     opacity: 1;
     transform: none;
