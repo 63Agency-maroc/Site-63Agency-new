@@ -22,7 +22,7 @@ const translations = {
     'why.text': "Trop d'entreprises paient pour de la visibilité et reçoivent des leads froids. 63 Agency construit un système d'acquisition clair : attirer les bonnes personnes, les qualifier, et les transformer en rendez-vous commerciaux. Si vous vendez un service et voulez des prospects réellement intéressés, vous êtes au bon endroit.",
     'why.alt': 'Fondateur de 63 Agency',
 
-    'statement.title': 'Une chose claire dès la première seconde',
+    'statement.title': 'Un système clair, conçu pour réussir chaque étape',
     'statement.text': '63 Agency génère des prospects qualifiés pour les entreprises de services, pas juste des clics, pas juste de la notoriété.',
     'service.monetise': 'Attirer',
     'service.monetise.desc': 'Contenus et campagnes pour capter les bons clients potentiels.',
@@ -33,7 +33,8 @@ const translations = {
     'service.masterminds': 'Scaler',
     'service.masterminds.desc': 'Augmenter le volume de leads qualifiés selon vos objectifs.',
 
-    'ads.title': 'Les chiffres ne mentent pas.',
+    'ads.title': 'Résultats Réels, Revenus Réels',
+    'ads.subtitle': 'Performance mesurée. ROI prévisible. Chiffres partagés avec nos clients.',
     'ads.meta.title': 'Meta Ads : plus de leads qualifiés, un coût par lead maîtrisé.',
     'ads.meta.text': 'Campagnes Meta et Instagram conçues pour générer des demandes via formulaires : volume, coût par lead, budget et performance, suivis en continu.',
     'ads.meta.emphasis': 'Des milliers de leads générés. Un coût par prospect sous contrôle.',
@@ -259,7 +260,7 @@ const translations = {
     'why.text': 'Too many businesses pay for visibility and get cold leads. 63 Agency builds a clear acquisition system: attract the right people, qualify them, and turn them into sales appointments. If you sell a service and want genuinely interested prospects, you are in the right place.',
     'why.alt': 'Founder of 63 Agency',
 
-    'statement.title': 'One thing clear in the first second',
+    'statement.title': 'A clear system, built to succeed at every step',
     'statement.text': '63 Agency generates qualified prospects for service businesses, not just clicks, not just brand awareness.',
     'service.monetise': 'Attract',
     'service.monetise.desc': 'Content and campaigns that capture the right potential clients.',
@@ -270,7 +271,8 @@ const translations = {
     'service.masterminds': 'Scale',
     'service.masterminds.desc': 'Increase qualified lead volume based on your goals.',
 
-    'ads.title': "The Numbers Don't Lie.",
+    'ads.title': 'Real Results, Real Revenue',
+    'ads.subtitle': 'Measured performance. Predictable ROI. Numbers shared with our clients.',
     'ads.meta.title': 'Meta Ads: more qualified leads, controlled cost per lead.',
     'ads.meta.text': 'Meta and Instagram campaigns built to generate form requests: volume, cost per lead, budget and performance, tracked continuously.',
     'ads.meta.emphasis': 'Thousands of leads generated. Cost per prospect under control.',
