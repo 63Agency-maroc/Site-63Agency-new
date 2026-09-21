@@ -329,6 +329,23 @@
 
               <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
             </form>
+
+            <div class="form-success-card" data-form-success hidden>
+              <div class="form-success-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M8 12.5l2.5 2.5L16 9.5"/>
+                </svg>
+              </div>
+              <h3 class="form-success-card__title" data-i18n="form.success.title">Informations envoyées</h3>
+              <p class="form-success-card__text" data-i18n="form.success.text">
+                Votre demande a bien été reçue. Nous vous recontactons rapidement.
+              </p>
+              <dl class="form-success-card__meta" data-form-success-meta></dl>
+              <button type="button" class="btn btn--gold form-success-card__btn" data-form-success-reset>
+                <span data-i18n="form.success.again">Envoyer une autre demande</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
