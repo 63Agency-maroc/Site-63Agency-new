@@ -1,7 +1,7 @@
 import { t } from './i18n.js';
 
 /** Change this when you have the exact Solution domain. */
-const API_URL = 'https://api1.63agency.com/public/contact';
+const API_URL = 'https://api.63agency.com/public/contact';
 
 const FIELD_KEYS = [
   'name',
