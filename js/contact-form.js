@@ -194,6 +194,13 @@ export function initContactForm() {
       form.reset();
       currentStep = 0;
       updateUI();
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17993411868/xytTCPbAo4AdEJza9oND',
+          'value': 1.0,
+          'currency': 'MAD'
+        });
+      }
       showSuccess();
     } catch {
       setStatus('error', t('form.error'));
