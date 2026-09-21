@@ -152,7 +152,19 @@
           </aside>
 
           <div class="contact-form-wrap" id="form" data-animate="fade-up" data-delay="140">
-            <form class="contact-form" id="contactForm" action="/api/contact" method="POST" novalidate>
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-honeypot" aria-hidden="true">
+                <label for="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  value=""
+                  tabindex="-1"
+                  autocomplete="off"
+                >
+              </div>
+
               <div class="form-progress">
                 <div class="form-progress-bar" style="width:33.33%"></div>
               </div>
@@ -314,6 +326,8 @@
                 <button type="button" class="form-nav form-nav--next" data-form-next data-i18n="form.next"><span>Continuer</span></button>
                 <button type="submit" class="form-submit" data-form-submit hidden data-i18n="form.submit"><span>Envoyer votre demande</span></button>
               </div>
+
+              <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
             </form>
           </div>
         </div>

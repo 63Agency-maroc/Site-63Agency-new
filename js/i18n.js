@@ -153,7 +153,10 @@ const translations = {
     'form.back': 'Retour',
     'form.next': 'Continuer',
     'form.submit': 'Envoyer votre demande',
-    'form.success': 'Merci ! Votre demande a bien été envoyée. Nous vous recontactons sous 24h.',
+    'form.sending': 'Envoi...',
+    'form.success': 'Votre demande a bien été reçue',
+    'form.error': 'Une erreur est survenue. Réessayez dans un instant.',
+    'form.validation': 'Merci de renseigner un nom, un email valide et un téléphone.',
 
     'sys.eyebrow': 'Notre système',
     'sys.title': "Un système d'acquisition<br>en 5 étapes",
@@ -376,7 +379,10 @@ const translations = {
     'form.back': 'Back',
     'form.next': 'Continue',
     'form.submit': 'Submit your request',
-    'form.success': 'Thank you! Your request has been sent. We will contact you within 24 hours.',
+    'form.sending': 'Sending...',
+    'form.success': 'Your request has been received',
+    'form.error': 'Something went wrong. Please try again shortly.',
+    'form.validation': 'Please enter a name, a valid email, and a phone number.',
 
     'sys.eyebrow': 'Our system',
     'sys.title': 'A 5-step<br>acquisition system',

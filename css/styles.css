@@ -2602,6 +2602,40 @@ body.nav-locked {
   margin-top: 0.75rem;
 }
 
+.form-honeypot {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form-status {
+  margin: 0.85rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.form-status--success {
+  color: #7dcea0;
+}
+
+.form-status--error {
+  color: #f08080;
+}
+
+.form-submit:disabled,
+.form-nav:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .form-nav,
 .form-submit {
   position: relative;
