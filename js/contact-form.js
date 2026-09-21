@@ -25,7 +25,8 @@ export function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  const wrap = form.closest('.contact-form-wrap') || form.parentElement;
+  const page = form.closest('.contact-page') || document.querySelector('.contact-page');
+  const successEl = document.querySelector('[data-form-success]');
   const steps = [...form.querySelectorAll('.form-step')];
   const progressBar = form.querySelector('.form-progress-bar');
   const stepLabels = [...form.querySelectorAll('.form-steps-labels span')];
@@ -35,9 +36,6 @@ export function initContactForm() {
   const submitLabel = submitBtn?.querySelector('span') || submitBtn;
   const phoneInput = form.querySelector('input[name="phone"]');
   const statusEl = form.querySelector('[data-form-status]');
-  const successCard = wrap?.querySelector('[data-form-success]');
-  const successMeta = wrap?.querySelector('[data-form-success-meta]');
-  const successReset = wrap?.querySelector('[data-form-success-reset]');
 
   let currentStep = 0;
   let submitting = false;
@@ -59,36 +57,10 @@ export function initContactForm() {
     submitLabel.textContent = isSubmitting ? t('form.sending') : t('form.submit');
   };
 
-  const showSuccessCard = (payload) => {
-    if (successMeta) {
-      const rows = [
-        ['name', payload.name],
-        ['email', payload.email],
-        ['phone', payload.phone]
-      ].filter(([, value]) => value);
-
-      successMeta.innerHTML = rows
-        .map(
-          ([key, value]) => `
-            <div>
-              <dt>${t(`form.success.meta.${key}`)}</dt>
-              <dd>${escapeHtml(value)}</dd>
-            </div>`
-        )
-        .join('');
-    }
-
-    form.hidden = true;
-    if (successCard) {
-      successCard.hidden = false;
-      successCard.focus?.();
-    }
-  };
-
-  const hideSuccessCard = () => {
-    if (successCard) successCard.hidden = true;
-    form.hidden = false;
-    if (successMeta) successMeta.innerHTML = '';
+  const showSuccess = () => {
+    document.body.classList.add('is-form-sent');
+    page?.classList.add('is-form-sent');
+    if (successEl) successEl.hidden = false;
   };
 
   const updateUI = () => {
@@ -189,16 +161,6 @@ export function initContactForm() {
     });
   }
 
-  if (successReset) {
-    successReset.addEventListener('click', () => {
-      hideSuccessCard();
-      setStatus('', '');
-      form.reset();
-      currentStep = 0;
-      updateUI();
-    });
-  }
-
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (submitting) return;
@@ -232,7 +194,7 @@ export function initContactForm() {
       form.reset();
       currentStep = 0;
       updateUI();
-      showSuccessCard(payload);
+      showSuccess();
     } catch {
       setStatus('error', t('form.error'));
     } finally {
@@ -241,12 +203,4 @@ export function initContactForm() {
   });
 
   updateUI();
-}
-
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
 }
