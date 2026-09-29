@@ -1613,13 +1613,16 @@ body.nav-locked {
 
 .ads-section {
   position: relative;
-  padding: 1.25rem 0 2.75rem;
+  z-index: 2;
+  isolation: isolate;
+  display: block;
+  padding: 2rem 0 3rem;
   background:
     radial-gradient(ellipse 45% 50% at 0% 40%, rgba(96, 165, 250, 0.06), transparent 55%),
     radial-gradient(ellipse 45% 50% at 100% 60%, rgba(251, 191, 36, 0.05), transparent 55%),
     radial-gradient(ellipse 80% 40% at 50% 100%, var(--glow-gold-soft), transparent 60%),
     #000;
-  overflow: hidden;
+  overflow: visible;
   scroll-margin-top: calc(var(--nav-height) + 0.5rem);
 }
 
@@ -1631,7 +1634,7 @@ body.nav-locked {
   right: 0;
   height: 5rem;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 .ads-section::before {
@@ -1646,7 +1649,7 @@ body.nav-locked {
 
 .ads-inner {
   position: relative;
-  z-index: 3;
+  z-index: 1;
   max-width: 68rem;
   margin: 0 auto;
   padding: 0 1.25rem;
@@ -1671,7 +1674,7 @@ body.nav-locked {
   text-align: center;
   color: rgba(255, 255, 255, 0.72);
   max-width: 38rem;
-  margin: 0 auto 0.25rem;
+  margin: 0 auto 1.5rem;
 }
 
 .ads-grid {
@@ -1690,121 +1693,46 @@ body.nav-locked {
 
 .ads-col {
   display: flex;
-  height: 100%;
+  min-height: 0;
 }
 
 .ads-card {
   position: relative;
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 0;
-}
-
-.ads-card-bg {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 9.5rem;
-  bottom: 0;
   border-radius: 18px;
-  z-index: 0;
-  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background:
     radial-gradient(ellipse 80% 70% at 30% 55%, rgba(255, 255, 255, 0.045), transparent 60%),
-    radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.05) 0 1px, transparent 1.5px),
     linear-gradient(145deg, #161616 0%, #0c0c0c 55%, #101010 100%);
-  background-size: auto, 18px 18px, auto;
-  box-shadow: none;
+  overflow: hidden;
   transition: border-color 0.25s ease;
 }
 
-.ads-card:hover .ads-card-bg {
+.ads-card:hover {
   border-color: rgba(232, 165, 75, 0.3);
-}
-
-.ads-card-bg::before {
-  content: '';
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  width: 90px;
-  height: 70px;
-  pointer-events: none;
-  opacity: 0.45;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.55) 0.8px, transparent 1px);
-  background-size: 10px 10px;
-  mask-image: radial-gradient(ellipse at top right, black 20%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at top right, black 20%, transparent 70%);
-}
-
-.ads-card-bg::after {
-  display: none;
-}
-
-.ads-card-bg .services-panel__accent {
-  top: 0;
-}
-
-.ads-card-bg .services-panel__dots {
-  inset: 14px 14px auto;
-  height: 64px;
-}
-
-.ads-card-bg .service-card__dash {
-  top: 14px;
-  left: 16px;
-}
-
-.ads-glow {
-  display: none;
 }
 
 .ads-image-wrap {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 0 0.85rem;
-  margin-top: -0.75rem;
-  margin-bottom: -1.5rem;
+  padding: 1rem 1rem 0;
   background: transparent;
-  flex-shrink: 0;
 }
 
+.ads-image-wrap picture,
+.ads-image-wrap img,
 .ads-image {
-  position: relative;
-  z-index: 2;
   display: block;
   width: 100%;
   height: auto;
-  max-height: 300px;
+  max-height: 340px;
   object-fit: contain;
   object-position: top;
   border-radius: 0.75rem;
-  background: transparent;
-  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.35));
-}
-
-@media (min-width: 640px) {
-  .ads-card-bg {
-    top: 11.25rem;
-    border-radius: 18px;
-  }
-
-  .ads-image-wrap {
-    padding: 0 1.1rem;
-    margin-top: -1rem;
-    margin-bottom: -1.75rem;
-  }
-
-  .ads-image {
-    max-height: 360px;
-  }
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .ads-content {
@@ -1813,7 +1741,7 @@ body.nav-locked {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  padding: 2.15rem 1.35rem 1.5rem;
+  padding: 1.25rem 1.35rem 1.5rem;
 }
 
 .ads-content h3 {
@@ -3523,19 +3451,39 @@ body.is-form-sent .contact-section {
 }
 
 /* Production failsafe: ads section must never stay invisible */
-.ads-section,
+#ads.ads-section,
+.ads-section {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 20rem;
+  content-visibility: visible !important;
+}
+
 .ads-section .ads-inner,
 .ads-section .ads-grid,
 .ads-section .ads-col,
 .ads-section .ads-card,
 .ads-section .ads-title,
+.ads-section .ads-subtitle,
 .ads-section .ads-content,
+.ads-section .ads-content h3,
+.ads-section .ads-content p,
+.ads-section .ads-image-wrap,
+.ads-section .ads-image-wrap picture,
+.ads-section .ads-image,
 .ads-section .ads-cta-wrap,
+.ads-section .ads-emphasis,
+.ads-section .view-more-btn {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto;
+}
+
 .ads-section [data-animate] {
   opacity: 1 !important;
   visibility: visible !important;
   transform: none !important;
-  pointer-events: auto;
 }
 
 [data-animate].is-visible.btn--gold:hover {
@@ -3716,12 +3664,8 @@ body.is-form-sent .contact-section {
     max-width: 100%;
   }
 
-  .ads-card-bg {
-    top: 8.5rem;
-  }
-
   .ads-content {
-    padding: 1.85rem 1.1rem 1.35rem;
+    padding: 1.25rem 1.1rem 1.35rem;
   }
 
   .ads-content h3 {

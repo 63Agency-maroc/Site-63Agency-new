@@ -59,16 +59,22 @@ export function initScrollAnimations() {
     });
   };
 
-  // #ads: force-reveal entire section when it approaches viewport
+  // #ads: always force-reveal immediately (production / Safari failsafe)
   const adsSection = document.getElementById('ads');
   if (adsSection) {
+    const revealAds = () => {
+      adsSection.querySelectorAll('[data-animate]').forEach((el) => {
+        reveal(el);
+        observer.unobserve(el);
+      });
+    };
+
+    revealAds();
+
     const adsObserver = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting && entry.intersectionRatio <= 0) return;
-        adsSection.querySelectorAll('[data-animate]').forEach((el) => {
-          reveal(el);
-          observer.unobserve(el);
-        });
+        revealAds();
         adsObserver.disconnect();
       },
       { threshold: 0, rootMargin: '200px 0px 200px 0px' }
