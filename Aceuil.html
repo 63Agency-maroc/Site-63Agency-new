@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>63 Agency | Génération de prospects qualifiés</title>
   <meta name="description" content="63 Agency génère des prospects qualifiés pour les entreprises de services. Éducation, B2B et B2C, immobilier.">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=results-1">
 </head>
 <body>
 
@@ -301,20 +301,20 @@
     <span class="section-split__line"></span>
   </div>
 
-  <section class="ads-section" id="ads">
-    <div class="ads-inner">
-      <h2 class="ads-title" data-i18n="ads.title">Résultats Réels, Revenus Réels</h2>
-      <p class="ads-subtitle" data-i18n="ads.subtitle">Performance mesurée. ROI prévisible. Chiffres partagés avec nos clients.</p>
-      <div class="ads-grid">
-        <div class="ads-col">
-          <article class="ads-card">
-            <div class="ads-image-wrap">
+  <section class="results-section" id="results">
+    <div class="results-inner">
+      <h2 class="results-title" data-i18n="results.title">Résultats Réels, Revenus Réels</h2>
+      <p class="results-subtitle" data-i18n="results.subtitle">Performance mesurée. ROI prévisible. Chiffres partagés avec nos clients.</p>
+      <div class="results-grid">
+        <div class="results-col">
+          <article class="results-card">
+            <div class="results-media">
               <picture>
-                <source srcset="src/images/Feceboock/meta-ads-fr.webp" type="image/webp">
+                <source srcset="src/images/results/meta-fr.webp" type="image/webp">
                 <img
-                  class="ads-image"
-                  src="src/images/Feceboock/meta-ads-fr.png"
-                  alt="Résultats Meta Ads"
+                  class="results-media__img"
+                  src="src/images/results/meta-fr.png"
+                  alt="Résultats Meta"
                   width="1200"
                   height="1000"
                   loading="eager"
@@ -322,26 +322,26 @@
                 >
               </picture>
             </div>
-            <div class="ads-content">
-              <h3 data-i18n="ads.meta.title">Meta Ads : volume de leads qualifiés et coût par lead optimisé.</h3>
-              <p data-i18n="ads.meta.text">
+            <div class="results-body">
+              <h3 data-i18n="results.meta.title">Meta Ads : volume de leads qualifiés et coût par lead optimisé.</h3>
+              <p data-i18n="results.meta.text">
                 Nos campagnes Meta ciblent la génération de leads via formulaires :
                 résultats, coût par lead, budget et dépenses, impressions et portée.
               </p>
-              <p class="ads-emphasis" data-i18n="ads.meta.emphasis">Des milliers de leads générés, un coût par lead maîtrisé.</p>
+              <p class="results-highlight" data-i18n="results.meta.emphasis">Des milliers de leads générés, un coût par lead maîtrisé.</p>
             </div>
           </article>
         </div>
 
-        <div class="ads-col">
-          <article class="ads-card">
-            <div class="ads-image-wrap">
+        <div class="results-col">
+          <article class="results-card">
+            <div class="results-media">
               <picture>
-                <source srcset="src/images/Feceboock/google-ads-fr.webp" type="image/webp">
+                <source srcset="src/images/results/google-fr.webp" type="image/webp">
                 <img
-                  class="ads-image"
-                  src="src/images/Feceboock/google-ads-fr.png"
-                  alt="Résultats Google Ads"
+                  class="results-media__img"
+                  src="src/images/results/google-fr.png"
+                  alt="Résultats Google"
                   width="1200"
                   height="1000"
                   loading="eager"
@@ -349,23 +349,23 @@
                 >
               </picture>
             </div>
-            <div class="ads-content">
-              <h3 data-i18n="ads.google.title">Google Ads : des conversions et un coût par acquisition maîtrisés.</h3>
-              <p data-i18n="ads.google.text">
+            <div class="results-body">
+              <h3 data-i18n="results.google.title">Google Ads : des conversions et un coût par acquisition maîtrisés.</h3>
+              <p data-i18n="results.google.text">
                 Nous structurons vos campagnes Google pour la génération de leads
                 sur des services à forte valeur. Suivi des ventes et du coût en temps réel.
               </p>
-              <p class="ads-emphasis" data-i18n="ads.google.emphasis">Performance tracée, budget optimisé, ROI mesurable.</p>
+              <p class="results-highlight" data-i18n="results.google.emphasis">Performance tracée, budget optimisé, ROI mesurable.</p>
             </div>
           </article>
         </div>
       </div>
 
-      <div class="ads-cta-wrap">
-        <a href="Contact.html" class="view-more-btn" aria-label="Parler à un expert" data-i18n-aria="ads.cta">
+      <div class="results-cta">
+        <a href="Contact.html" class="view-more-btn" aria-label="Parler à un expert" data-i18n-aria="results.cta">
           <span>
-            <span class="text-1" data-i18n="ads.cta">Parler à un expert</span>
-            <span class="text-2" data-i18n="ads.cta">Parler à un expert</span>
+            <span class="text-1" data-i18n="results.cta">Parler à un expert</span>
+            <span class="text-2" data-i18n="results.cta">Parler à un expert</span>
           </span>
           <i>
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1V11M11 1H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -748,8 +748,8 @@
 
   <script type="module">
     import { initNavbar } from './js/navbar.js';
-    import { initI18n } from './js/i18n.js';
-    import { initScrollAnimations, initScrollTop } from './js/scroll.js';
+    import { initI18n } from './js/i18n.js?v=results-1';
+    import { initScrollAnimations, initScrollTop } from './js/scroll.js?v=results-1';
 
     initI18n();
     initNavbar();

@@ -59,27 +59,27 @@ export function initScrollAnimations() {
     });
   };
 
-  // #ads: always force-reveal immediately (production / Safari failsafe)
-  const adsSection = document.getElementById('ads');
-  if (adsSection) {
-    const revealAds = () => {
-      adsSection.querySelectorAll('[data-animate]').forEach((el) => {
+  // #results: always force-reveal immediately (production / Safari failsafe)
+  const resultsSection = document.getElementById('results');
+  if (resultsSection) {
+    const revealResults = () => {
+      resultsSection.querySelectorAll('[data-animate]').forEach((el) => {
         reveal(el);
         observer.unobserve(el);
       });
     };
 
-    revealAds();
+    revealResults();
 
-    const adsObserver = new IntersectionObserver(
+    const resultsObserver = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting && entry.intersectionRatio <= 0) return;
-        revealAds();
-        adsObserver.disconnect();
+        revealResults();
+        resultsObserver.disconnect();
       },
       { threshold: 0, rootMargin: '200px 0px 200px 0px' }
     );
-    adsObserver.observe(adsSection);
+    resultsObserver.observe(resultsSection);
   }
 
   elements.forEach((el) => observer.observe(el));
