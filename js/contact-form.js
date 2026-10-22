@@ -3,22 +3,6 @@ import { t } from './i18n.js';
 /** Change this when you have the exact Solution domain. */
 const API_URL = 'https://api.63agency.com/public/contact';
 
-const FIELD_KEYS = [
-  'name',
-  'email',
-  'phone',
-  'company',
-  'employees',
-  'city',
-  'role',
-  'objective',
-  'campaigns',
-  'sector',
-  'budget',
-  'availability',
-  'website'
-];
-
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function initContactForm() {
@@ -197,16 +181,15 @@ export function initContactForm() {
 
   const buildPayload = () => {
     const fd = new FormData(form);
-    const payload = {};
-    for (const key of FIELD_KEYS) {
-      payload[key] = String(fd.get(key) ?? '').trim();
-    }
-
     const dial = String(fd.get('dial') ?? '').trim();
     const local = String(fd.get('phone') ?? '').replace(/\D/g, '');
-    payload.phone = `${dial}${local}`;
-    payload.budget = String(fd.get('revenue') ?? '').trim();
-    return payload;
+
+    return {
+      name: String(fd.get('name') ?? '').trim(),
+      email: String(fd.get('email') ?? '').trim(),
+      phone: `${dial}${local}`,
+      budget: String(fd.get('revenue') ?? '').trim()
+    };
   };
 
   if (phoneInput) {
