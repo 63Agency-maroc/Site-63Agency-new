@@ -27,17 +27,11 @@ export function initContactForm() {
 
   const page = form.closest('.contact-page') || document.querySelector('.contact-page');
   const successEl = document.querySelector('[data-form-success]');
-  const steps = [...form.querySelectorAll('.form-step')];
-  const progressBar = form.querySelector('.form-progress-bar');
-  const stepLabels = [...form.querySelectorAll('.form-steps-labels span')];
-  const nextBtn = form.querySelector('[data-form-next]');
-  const prevBtn = form.querySelector('[data-form-prev]');
   const submitBtn = form.querySelector('[data-form-submit]');
   const submitLabel = submitBtn?.querySelector('span') || submitBtn;
   const phoneInput = form.querySelector('input[name="phone"]');
   const statusEl = form.querySelector('[data-form-status]');
 
-  let currentStep = 0;
   let submitting = false;
 
   const setStatus = (type, message) => {
@@ -52,8 +46,6 @@ export function initContactForm() {
     submitting = isSubmitting;
     if (!submitBtn || !submitLabel) return;
     submitBtn.disabled = isSubmitting;
-    if (nextBtn) nextBtn.disabled = isSubmitting;
-    if (prevBtn) prevBtn.disabled = isSubmitting;
     submitLabel.textContent = isSubmitting ? t('form.sending') : t('form.submit');
   };
 
@@ -63,64 +55,140 @@ export function initContactForm() {
     if (successEl) successEl.hidden = false;
   };
 
-  const updateUI = () => {
-    steps.forEach((step, index) => {
-      step.hidden = index !== currentStep;
+  const closePickers = [];
+
+  const mountPicker = (select) => {
+    const picker = document.createElement('div');
+    picker.className = `form-picker${select.id === 'dial' ? ' form-picker--dial' : ''}`;
+    select.parentNode.insertBefore(picker, select);
+    picker.appendChild(select);
+    select.classList.add('form-select--native');
+    select.tabIndex = -1;
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'form-picker__btn';
+    btn.setAttribute('aria-haspopup', 'listbox');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span class="form-picker__value"></span><svg class="form-picker__chevron" width="12" height="8" viewBox="0 0 12 8" aria-hidden="true"><path fill="currentColor" d="M1.4.6 6 5.2 10.6.6 12 2 6 8 0 2z"/></svg>';
+
+    const menu = document.createElement('ul');
+    menu.className = 'form-picker__menu';
+    menu.setAttribute('role', 'listbox');
+    menu.hidden = true;
+
+    picker.append(btn, menu);
+
+    const valueEl = btn.querySelector('.form-picker__value');
+    let open = false;
+
+    const placeholderText = () => {
+      const empty = [...select.options].find((option) => option.disabled || option.value === '');
+      return empty ? empty.textContent.trim() : '';
+    };
+
+    const selectedText = () => {
+      const current = select.options[select.selectedIndex];
+      if (!current || current.disabled || current.value === '') return placeholderText();
+      return current.textContent.trim();
+    };
+
+    const refresh = () => {
+      if (select.getAttribute('aria-label')) btn.setAttribute('aria-label', select.getAttribute('aria-label'));
+      const empty = !select.value;
+      btn.classList.toggle('is-placeholder', empty);
+      valueEl.textContent = selectedText();
+      menu.replaceChildren();
+      [...select.options].forEach((option) => {
+        if (option.disabled || option.value === '') return;
+        const item = document.createElement('li');
+        item.className = 'form-picker__option';
+        item.setAttribute('role', 'option');
+        item.textContent = option.textContent.trim();
+        item.classList.toggle('is-selected', option.value === select.value);
+        item.addEventListener('click', () => {
+          select.value = option.value;
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+          refresh();
+          close();
+        });
+        menu.appendChild(item);
+      });
+    };
+
+    const place = () => {
+      menu.hidden = false;
+      menu.style.top = 'calc(100% + 6px)';
+      menu.style.bottom = 'auto';
+      const height = menu.offsetHeight;
+      const rect = btn.getBoundingClientRect();
+      if (window.innerHeight - rect.bottom < height + 12 && rect.top > height + 12) {
+        menu.style.top = 'auto';
+        menu.style.bottom = 'calc(100% + 6px)';
+      }
+    };
+
+    const close = () => {
+      open = false;
+      menu.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      picker.classList.remove('is-open');
+    };
+
+    const openMenu = () => {
+      closePickers.forEach((fn) => fn());
+      open = true;
+      picker.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      place();
+    };
+
+    btn.addEventListener('click', () => {
+      if (open) close();
+      else openMenu();
     });
 
-    stepLabels.forEach((label, index) => {
-      label.classList.toggle('active', index === currentStep);
-      label.classList.toggle('done', index < currentStep);
-    });
-
-    if (progressBar) {
-      progressBar.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
-    }
-
-    if (prevBtn) prevBtn.hidden = currentStep === 0;
-    if (nextBtn) nextBtn.hidden = currentStep === steps.length - 1;
-    if (submitBtn) submitBtn.hidden = currentStep !== steps.length - 1;
+    closePickers.push(close);
+    refresh();
+    return { refresh, close };
   };
 
-  const validateStep = () => {
-    const fields = steps[currentStep].querySelectorAll('input, select, textarea');
+  const pickers = [...form.querySelectorAll('select.form-select')].map(mountPicker);
+
+  document.addEventListener('i18n:applied', () => {
+    pickers.forEach((picker) => picker.refresh());
+  });
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.form-picker')) return;
+    pickers.forEach((picker) => picker.close());
+  });
+
+  window.addEventListener('resize', () => pickers.forEach((picker) => picker.close()));
+  window.addEventListener('scroll', (event) => {
+    const target = event.target;
+    if (target instanceof Element && target.closest('.form-picker__menu')) return;
+    pickers.forEach((picker) => picker.close());
+  }, true);
+
+  const validateForm = () => {
+    const fields = form.querySelectorAll('input, select, textarea');
     for (const field of fields) {
       if (field.name === 'website') continue;
       if (!field.checkValidity()) {
-        field.reportValidity();
+        const pickerBtn = field.closest('.form-picker')?.querySelector('.form-picker__btn');
+        if (pickerBtn) pickerBtn.focus();
+        else field.reportValidity();
+        setStatus('error', t('form.validation'));
         return false;
       }
     }
-    return true;
-  };
 
-  const validateRequiredBasics = () => {
-    const name = form.elements.namedItem('name');
-    const email = form.elements.namedItem('email');
-    const phone = form.elements.namedItem('phone');
+    const emailVal = String(form.elements.namedItem('email')?.value || '').trim();
+    const phoneVal = String(form.elements.namedItem('phone')?.value || '').replace(/\D/g, '');
 
-    const nameVal = String(name?.value || '').trim();
-    const emailVal = String(email?.value || '').trim();
-    const phoneVal = String(phone?.value || '').trim();
-
-    if (!nameVal) {
+    if (!EMAIL_RE.test(emailVal) || phoneVal.length < 8) {
       setStatus('error', t('form.validation'));
-      name?.focus();
-      name?.reportValidity?.();
-      return false;
-    }
-
-    if (!emailVal || !EMAIL_RE.test(emailVal)) {
-      setStatus('error', t('form.validation'));
-      email?.focus();
-      email?.reportValidity?.();
-      return false;
-    }
-
-    if (!phoneVal) {
-      setStatus('error', t('form.validation'));
-      phone?.focus();
-      phone?.reportValidity?.();
       return false;
     }
 
@@ -133,6 +201,11 @@ export function initContactForm() {
     for (const key of FIELD_KEYS) {
       payload[key] = String(fd.get(key) ?? '').trim();
     }
+
+    const dial = String(fd.get('dial') ?? '').trim();
+    const local = String(fd.get('phone') ?? '').replace(/\D/g, '');
+    payload.phone = `${dial}${local}`;
+    payload.budget = String(fd.get('revenue') ?? '').trim();
     return payload;
   };
 
@@ -142,40 +215,19 @@ export function initContactForm() {
     });
   }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      if (submitting) return;
-      if (!validateStep()) return;
-      setStatus('', '');
-      currentStep = Math.min(currentStep + 1, steps.length - 1);
-      updateUI();
-    });
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      if (submitting) return;
-      setStatus('', '');
-      currentStep = Math.max(currentStep - 1, 0);
-      updateUI();
-    });
-  }
-
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (submitting) return;
-    if (!validateStep()) return;
-    if (!validateRequiredBasics()) return;
+    if (!validateForm()) return;
 
     setStatus('', '');
     setSubmitting(true);
-    const payload = buildPayload();
 
     try {
       const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(buildPayload())
       });
 
       if (!res.ok) {
@@ -192,13 +244,11 @@ export function initContactForm() {
       }
 
       form.reset();
-      currentStep = 0;
-      updateUI();
       if (typeof gtag === 'function') {
         gtag('event', 'conversion', {
-          'send_to': 'AW-17993411868/xytTCPbAo4AdEJza9oND',
-          'value': 1.0,
-          'currency': 'MAD'
+          send_to: 'AW-17993411868/xytTCPbAo4AdEJza9oND',
+          value: 1.0,
+          currency: 'MAD'
         });
       }
       showSuccess();
@@ -208,6 +258,4 @@ export function initContactForm() {
       setSubmitting(false);
     }
   });
-
-  updateUI();
 }
