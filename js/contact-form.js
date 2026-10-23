@@ -234,6 +234,7 @@ export function initContactForm() {
           currency: 'MAD'
         });
       }
+      if (window.fbq) fbq('track', 'Lead');
       showSuccess();
     } catch {
       setStatus('error', t('form.error'));
