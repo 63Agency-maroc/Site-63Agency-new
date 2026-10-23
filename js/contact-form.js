@@ -188,6 +188,7 @@ export function initContactForm() {
       name: String(fd.get('name') ?? '').trim(),
       email: String(fd.get('email') ?? '').trim(),
       phone: `${dial}${local}`,
+      role: String(fd.get('role') ?? '').trim(),
       budget: String(fd.get('revenue') ?? '').trim()
     };
   };

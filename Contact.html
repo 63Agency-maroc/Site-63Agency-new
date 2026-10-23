@@ -194,6 +194,21 @@
 
               <div class="form-field">
                 <div class="form-field__head">
+                  <label class="form-label" for="role" data-i18n="form.role">Quelle est votre fonction ?</label>
+                  <span class="form-required" data-i18n="form.required">Requis</span>
+                </div>
+                <select class="form-select" id="role" name="role" required>
+                  <option value="" selected disabled data-i18n="form.choose">Choisir...</option>
+                  <option value="Fondateur(trice)" data-i18n="form.role.founder">Fondateur(trice)</option>
+                  <option value="Directeur(trice) / Gérant(e)" data-i18n="form.role.director">Directeur(trice) / Gérant(e)</option>
+                  <option value="Responsable Marketing" data-i18n="form.role.marketing">Responsable Marketing</option>
+                  <option value="Investisseur(se)" data-i18n="form.role.investor">Investisseur(se)</option>
+                  <option value="Autres" data-i18n="form.role.other">Autres</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <div class="form-field__head">
                   <label class="form-label" for="phone" data-i18n="form.phone">Numéro WhatsApp direct</label>
                   <span class="form-required" data-i18n="form.required">Requis</span>
                 </div>
