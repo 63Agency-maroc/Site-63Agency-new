@@ -2071,6 +2071,8 @@ body.nav-locked {
 }
 
 .contact-page {
+  position: relative;
+  z-index: 5;
   padding-top: var(--nav-height);
   min-height: auto;
   background: #000;

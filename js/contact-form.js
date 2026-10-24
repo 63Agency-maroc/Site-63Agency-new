@@ -102,11 +102,21 @@ export function initContactForm() {
 
     const place = () => {
       menu.hidden = false;
+      menu.style.maxHeight = '';
       menu.style.top = 'calc(100% + 6px)';
       menu.style.bottom = 'auto';
-      const height = menu.offsetHeight;
+      const height = menu.scrollHeight;
       const rect = btn.getBoundingClientRect();
-      if (window.innerHeight - rect.bottom < height + 12 && rect.top > height + 12) {
+      const nav = document.querySelector('.navbar');
+      const navBottom = nav ? nav.getBoundingClientRect().bottom : 0;
+      const footer = document.querySelector('.footer');
+      const footerTop = footer ? footer.getBoundingClientRect().top : window.innerHeight;
+      const spaceBelow = Math.min(window.innerHeight, footerTop) - rect.bottom - 16;
+      const spaceAbove = rect.top - Math.max(navBottom, 0) - 16;
+      const openUp = spaceBelow < Math.min(height, 280) && spaceAbove > spaceBelow;
+      const limit = Math.max(140, openUp ? spaceAbove : spaceBelow);
+      menu.style.maxHeight = `${Math.min(limit, 280)}px`;
+      if (openUp) {
         menu.style.top = 'auto';
         menu.style.bottom = 'calc(100% + 6px)';
       }
