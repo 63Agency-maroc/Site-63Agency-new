@@ -236,6 +236,7 @@ export function initContactForm() {
         });
       }
       if (window.fbq) fbq('track', 'Lead');
+      if (window.ttq) ttq.track('SubmitForm');
       showSuccess();
     } catch {
       setStatus('error', t('form.error'));
