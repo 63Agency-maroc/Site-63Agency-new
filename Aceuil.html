@@ -857,11 +857,27 @@
       zoom: 0.9
     };
 
-    import('./js/Grainient.js')
-      .then(({ initGrainient }) => {
-        initGrainient(document.getElementById('hero-grainient'), grainientOptions);
-      })
-      .catch((err) => console.warn('[Grainient] skipped:', err));
+    const startGrainient = () => {
+      import('./js/Grainient.js')
+        .then(({ initGrainient }) => {
+          initGrainient(document.getElementById('hero-grainient'), grainientOptions);
+        })
+        .catch((err) => console.warn('[Grainient] skipped:', err));
+    };
+
+    const deferGrainient = () => {
+      if (typeof requestIdleCallback === 'function') {
+        requestIdleCallback(startGrainient, { timeout: 2000 });
+      } else {
+        window.setTimeout(startGrainient, 300);
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      deferGrainient();
+    } else {
+      window.addEventListener('load', deferGrainient, { once: true });
+    }
   </script>
 </body>
 </html>

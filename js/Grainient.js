@@ -135,10 +135,25 @@ const DEFAULTS = {
   lightMode: false
 };
 
+/** Cap DPR so desktop retina does not explode fragment cost. */
+const MAX_DPR = 1.5;
+/** Max edge length of the WebGL drawing buffer (device pixels). */
+const MAX_BUFFER_EDGE = 1600;
+
+function resolveDpr(cssW, cssH) {
+  let dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
+  const longest = Math.max(cssW, cssH, 1);
+  if (longest * dpr > MAX_BUFFER_EDGE) {
+    dpr = MAX_BUFFER_EDGE / longest;
+  }
+  return Math.max(0.5, dpr);
+}
+
 export function initGrainient(container, options = {}) {
   if (!container) return () => {};
 
   const opts = { ...DEFAULTS, ...options };
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   container.classList.add('grainient-container');
 
   let renderer;
@@ -147,7 +162,7 @@ export function initGrainient(container, options = {}) {
       webgl: 2,
       alpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: Math.min(window.devicePixelRatio || 1, MAX_DPR)
     });
   } catch (err) {
     console.warn('[Grainient] WebGL2 unavailable:', err);
@@ -210,36 +225,45 @@ export function initGrainient(container, options = {}) {
       1,
       Math.floor(rect.height || parentRect?.height || container.clientHeight || 1)
     );
+    renderer.dpr = resolveDpr(w, h);
     renderer.setSize(w, h);
     const res = program.uniforms.iResolution.value;
     res[0] = gl.drawingBufferWidth;
     res[1] = gl.drawingBufferHeight;
-    renderer.render({ scene: mesh });
   };
 
-  const ro = new ResizeObserver(() => setSize());
-  ro.observe(container);
-  if (container.parentElement) ro.observe(container.parentElement);
-  setSize();
-  requestAnimationFrame(() => setSize());
+  const renderFrame = (t) => {
+    program.uniforms.iTime.value = t;
+    renderer.render({ scene: mesh });
+  };
 
   let raf = 0;
   let isVisible = true;
   let isPageVisible = !document.hidden;
   const t0 = performance.now();
 
-  const loop = (t) => {
-    program.uniforms.iTime.value = (t - t0) * 0.001;
-    renderer.render({ scene: mesh });
+  const ro = new ResizeObserver(() => {
+    setSize();
+    if (prefersReducedMotion || raf === 0) {
+      renderFrame(program.uniforms.iTime.value);
+    }
+  });
+  ro.observe(container);
+  if (container.parentElement) ro.observe(container.parentElement);
+
+  const loop = (now) => {
+    renderFrame((now - t0) * 0.001);
     raf = requestAnimationFrame(loop);
   };
 
   const tryStart = () => {
+    if (prefersReducedMotion) return;
     if (isVisible && isPageVisible && raf === 0) {
       setSize();
       raf = requestAnimationFrame(loop);
     }
   };
+
   const tryStop = () => {
     if (raf !== 0) {
       cancelAnimationFrame(raf);
@@ -249,25 +273,52 @@ export function initGrainient(container, options = {}) {
 
   const io = new IntersectionObserver(
     ([entry]) => {
-      isVisible = entry.isIntersecting;
+      isVisible = entry.isIntersecting && entry.intersectionRatio > 0;
       if (isVisible) {
         setSize();
-        tryStart();
+        if (prefersReducedMotion) {
+          renderFrame(0);
+        } else {
+          tryStart();
+        }
       } else {
         tryStop();
       }
     },
-    { threshold: 0, rootMargin: '80px' }
+    { threshold: 0, rootMargin: '0px' }
   );
   io.observe(container);
 
   const onVisibility = () => {
     isPageVisible = !document.hidden;
-    isPageVisible ? tryStart() : tryStop();
+    if (isPageVisible) {
+      if (prefersReducedMotion) {
+        setSize();
+        renderFrame(program.uniforms.iTime.value || 0);
+      } else {
+        tryStart();
+      }
+    } else {
+      tryStop();
+    }
   };
   document.addEventListener('visibilitychange', onVisibility);
 
-  tryStart();
+  // Initial layout + first paint (static if reduced-motion).
+  setSize();
+  renderFrame(0);
+
+  if (!prefersReducedMotion) {
+    // Defer continuous loop until the main thread is idle / after load.
+    const scheduleLoop = () => {
+      tryStart();
+    };
+    if (typeof requestIdleCallback === 'function') {
+      requestIdleCallback(scheduleLoop, { timeout: 1200 });
+    } else {
+      window.setTimeout(scheduleLoop, 200);
+    }
+  }
 
   return () => {
     tryStop();
