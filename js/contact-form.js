@@ -48,9 +48,11 @@ export function initContactForm() {
     picker.appendChild(select);
     select.classList.add('form-select--native');
     select.tabIndex = -1;
+    select.setAttribute('aria-hidden', 'true');
 
     const btn = document.createElement('button');
     btn.type = 'button';
+    btn.id = `${select.id || 'select'}-picker`;
     btn.className = 'form-picker__btn';
     btn.setAttribute('aria-haspopup', 'listbox');
     btn.setAttribute('aria-expanded', 'false');
@@ -58,8 +60,15 @@ export function initContactForm() {
 
     const menu = document.createElement('ul');
     menu.className = 'form-picker__menu';
+    menu.id = `${select.id || 'select'}-listbox`;
     menu.setAttribute('role', 'listbox');
+    menu.setAttribute('aria-label', select.getAttribute('aria-label') || select.name || 'Options');
     menu.hidden = true;
+    btn.setAttribute('aria-controls', menu.id);
+
+    // Point the visible <label for> at the custom button (native select is a11y-hidden).
+    const linkedLabel = document.querySelector(`label[for="${select.id}"]`);
+    if (linkedLabel) linkedLabel.setAttribute('for', btn.id);
 
     picker.append(btn, menu);
 
@@ -77,17 +86,31 @@ export function initContactForm() {
       return current.textContent.trim();
     };
 
+    const labelText = () => {
+      const labelEl =
+        document.querySelector(`label[for="${btn.id}"]`) ||
+        document.querySelector(`label[for="${select.id}"]`);
+      return (labelEl && labelEl.textContent.replace(/\s+/g, ' ').trim()) || '';
+    };
+
     const refresh = () => {
-      if (select.getAttribute('aria-label')) btn.setAttribute('aria-label', select.getAttribute('aria-label'));
+      const baseName =
+        labelText() ||
+        select.getAttribute('aria-label') ||
+        select.name ||
+        'Options';
+      const current = selectedText();
+      btn.setAttribute('aria-label', current ? `${baseName}: ${current}` : baseName);
       const empty = !select.value;
       btn.classList.toggle('is-placeholder', empty);
-      valueEl.textContent = selectedText();
+      valueEl.textContent = current;
       menu.replaceChildren();
       [...select.options].forEach((option) => {
         if (option.disabled || option.value === '') return;
         const item = document.createElement('li');
         item.className = 'form-picker__option';
         item.setAttribute('role', 'option');
+        item.setAttribute('aria-selected', option.value === select.value ? 'true' : 'false');
         item.textContent = option.textContent.trim();
         item.classList.toggle('is-selected', option.value === select.value);
         item.addEventListener('click', () => {

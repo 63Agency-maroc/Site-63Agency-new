@@ -26,29 +26,34 @@ export function initNavbar() {
   window.addEventListener('scroll', syncScrolled, { passive: true });
   window.addEventListener('resize', syncScrolled, { passive: true });
 
-  const openSidebar = () => {
+  const setSidebarOpen = (open) => {
     if (!sidebar || !overlay || !toggle) return;
-    sidebar.classList.add('open');
-    overlay.classList.add('open');
-    overlay.hidden = false;
-    toggle.classList.add('open');
-    toggle.setAttribute('aria-expanded', 'true');
-    sidebar.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('nav-locked');
+    sidebar.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    sidebar.setAttribute('aria-hidden', open ? 'false' : 'true');
+    // Prevent focusable controls inside a closed aria-hidden tree (malformed a11y tree).
+    if ('inert' in sidebar) {
+      sidebar.inert = !open;
+    }
+    document.body.classList.toggle('nav-locked', open);
+    if (open) {
+      overlay.hidden = false;
+    } else {
+      window.setTimeout(() => {
+        if (!sidebar.classList.contains('open')) overlay.hidden = true;
+      }, 320);
+    }
   };
 
-  const closeSidebar = () => {
-    if (!sidebar || !overlay || !toggle) return;
-    sidebar.classList.remove('open');
-    overlay.classList.remove('open');
-    toggle.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-    sidebar.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('nav-locked');
-    window.setTimeout(() => {
-      if (!sidebar.classList.contains('open')) overlay.hidden = true;
-    }, 320);
-  };
+  // Closed by default — keep tree well-formed from first paint.
+  if (sidebar && !sidebar.classList.contains('open')) {
+    if ('inert' in sidebar) sidebar.inert = true;
+  }
+
+  const openSidebar = () => setSidebarOpen(true);
+  const closeSidebar = () => setSidebarOpen(false);
 
   if (toggle && sidebar && overlay) {
     toggle.addEventListener('click', () => {
