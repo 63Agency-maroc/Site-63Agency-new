@@ -1,0 +1,10 @@
+{
+  "name": "63agency-new",
+  "private": true,
+  "scripts": {
+    "convert-webp": "node scripts/convert-to-webp.js"
+  },
+  "dependencies": {
+    "sharp": "^0.35.5"
+  }
+}

@@ -159,6 +159,10 @@ ul {
   line-height: 0;
 }
 
+.navbar__logo picture {
+  display: contents;
+}
+
 .navbar__logo img {
   display: block;
   height: 36px;
@@ -973,6 +977,12 @@ body.nav-locked {
   align-items: center;
   gap: 3rem;
   padding-right: 3rem;
+}
+
+.partners__group picture {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .partners__group img {
@@ -2008,6 +2018,12 @@ body.nav-locked {
   margin-bottom: 0.55rem;
 }
 
+.testimonial__header picture {
+  flex-shrink: 0;
+  display: block;
+  line-height: 0;
+}
+
 .testimonial__avatar {
   width: 44px;
   height: 44px;
@@ -2232,18 +2248,24 @@ body.nav-locked {
   display: flex;
 }
 
+.avatar-stack picture {
+  display: block;
+  line-height: 0;
+  margin-left: -8px;
+}
+
+.avatar-stack picture:first-child {
+  margin-left: 0;
+}
+
 .avatar-stack img {
   width: 32px;
   height: 32px;
   border-radius: 50%;
   border: 2px solid rgba(232, 165, 75, 0.35);
   object-fit: cover;
-  margin-left: -8px;
-  background: #1a1a1a;
-}
-
-.avatar-stack img:first-child {
   margin-left: 0;
+  background: #1a1a1a;
 }
 
 .badge-green {
@@ -4395,6 +4417,12 @@ body.is-form-sent .contact-section {
   gap: 1.75rem;
   margin: 0 0 2.25rem 0;
   max-width: 740px;
+}
+
+.promise__quote-row > picture {
+  flex-shrink: 0;
+  display: block;
+  line-height: 0;
 }
 
 .promise__avatar {

@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="src/images/logo/brawserlogo.png">
-  <link rel="apple-touch-icon" href="src/images/logo/brawserlogo.png">
+  <link rel="icon" type="image/png" href="src/images/logo/favicon.png">
+  <link rel="apple-touch-icon" href="src/images/logo/image.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Navbar | 63Agency.com</title>
   <link rel="stylesheet" href="css/styles.css">
@@ -15,7 +15,10 @@
 
   <nav class="navbar scrolled" id="navbar">
     <div class="container navbar__inner">
-      <a href="Aceuil.html" class="navbar__logo"><img src="src/images/logo/image.png" alt="63Agency.com"></a>
+      <a href="Aceuil.html" class="navbar__logo"><picture>
+                <source srcset="src/images/logo/image.webp" type="image/webp">
+                <img src="src/images/logo/image.png" alt="63Agency.com">
+              </picture></a>
 
       <ul class="navbar__links" id="navLinks">
         <li><a href="Aceuil.html" class="active">Home</a></li>

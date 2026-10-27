@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" href="src/images/logo/brawserlogo.png">
-  <link rel="apple-touch-icon" href="src/images/logo/brawserlogo.png">
+  <link rel="icon" type="image/png" href="src/images/logo/favicon.png">
+  <link rel="apple-touch-icon" href="src/images/logo/image.png">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17993411868"></script>
   <script>
@@ -37,7 +37,10 @@
 
   <nav class="navbar scrolled" id="navbar">
     <div class="container navbar__inner">
-      <a href="Aceuil.html" class="navbar__logo"><img src="src/images/logo/image.png" alt="63Agency.com"></a>
+      <a href="Aceuil.html" class="navbar__logo"><picture>
+                <source srcset="src/images/logo/image.webp" type="image/webp">
+                <img src="src/images/logo/image.png" alt="63Agency.com" width="1202" height="249">
+              </picture></a>
 
       <ul class="navbar__links" id="navLinks">
         <li><a href="Aceuil.html" data-i18n="nav.home">Home</a></li>
@@ -64,7 +67,10 @@
   <div class="nav-overlay" id="navOverlay" hidden></div>
   <aside class="nav-sidebar" id="navSidebar" aria-hidden="true">
     <div class="nav-sidebar__header">
-      <a href="Aceuil.html" class="navbar__logo"><img src="src/images/logo/image.png" alt="63Agency.com"></a>
+      <a href="Aceuil.html" class="navbar__logo"><picture>
+                <source srcset="src/images/logo/image.webp" type="image/webp">
+                <img src="src/images/logo/image.png" alt="63Agency.com" width="1202" height="249">
+              </picture></a>
       <div class="nav-sidebar__header-actions">
         <div class="lang-switch" role="group" aria-label="Language">
           <button type="button" class="lang-switch__btn" data-set-lang="fr">FR</button>
@@ -239,12 +245,18 @@
       </h2>
 
       <div class="promise__quote-row">
-        <img
+        <picture>
+                <source srcset="src/images/image.webp" type="image/webp">
+                <img
           class="promise__avatar"
           src="src/images/image.png"
           alt="Saad Chahoubi, Founder, 63 Agency"
           data-i18n-alt="why.alt"
+          width="769"
+          height="766"
+          loading="lazy"
         >
+              </picture>
         <div class="promise__quote-wrap">
           <p class="promise__quote" data-i18n-html="promise.quote">
             <span class="promise__mark">“</span>Notre promesse est simple :<br>
