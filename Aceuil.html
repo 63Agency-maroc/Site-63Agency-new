@@ -857,26 +857,21 @@
       zoom: 0.9
     };
 
-    const startGrainient = () => {
+    // Capability gate before importing OGL/WebGL (mobile / low-end skip).
+    const shouldRunGrainient = () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+      if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) return false;
+      if (window.matchMedia('(max-width: 768px)').matches) return false;
+      if (navigator.deviceMemory && navigator.deviceMemory <= 4) return false;
+      return true;
+    };
+
+    if (shouldRunGrainient()) {
       import('./js/Grainient.js')
         .then(({ initGrainient }) => {
           initGrainient(document.getElementById('hero-grainient'), grainientOptions);
         })
         .catch((err) => console.warn('[Grainient] skipped:', err));
-    };
-
-    const deferGrainient = () => {
-      if (typeof requestIdleCallback === 'function') {
-        requestIdleCallback(startGrainient, { timeout: 2000 });
-      } else {
-        window.setTimeout(startGrainient, 300);
-      }
-    };
-
-    if (document.readyState === 'complete') {
-      deferGrainient();
-    } else {
-      window.addEventListener('load', deferGrainient, { once: true });
     }
   </script>
 </body>

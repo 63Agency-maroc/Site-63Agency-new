@@ -577,6 +577,11 @@ body.nav-locked {
   position: absolute;
   inset: 0;
   z-index: 0;
+  /* Static fallback when WebGL Grainient is skipped (mobile / low-end). */
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 35%, rgba(64, 64, 64, 0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 50% at 70% 70%, rgba(40, 40, 40, 0.4) 0%, transparent 65%),
+    linear-gradient(180deg, #1a1a1a 0%, #000000 55%, #0a0a0a 100%);
 }
 
 /* Grainient full hero — dark grain gradient */

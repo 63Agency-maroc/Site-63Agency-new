@@ -139,6 +139,20 @@ const DEFAULTS = {
 const MAX_DPR = 1.5;
 /** Max edge length of the WebGL drawing buffer (device pixels). */
 const MAX_BUFFER_EDGE = 1600;
+/** Target frame interval (~30 FPS). */
+const FRAME_MS = 1000 / 30;
+
+/**
+ * Capability gate — call before creating WebGL / importing this module.
+ * Mobile / low-end / reduced-motion → skip (CSS hero background only).
+ */
+export function shouldRunGrainient() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) return false;
+  if (window.matchMedia('(max-width: 768px)').matches) return false;
+  if (navigator.deviceMemory && navigator.deviceMemory <= 4) return false;
+  return true;
+}
 
 function resolveDpr(cssW, cssH) {
   let dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
@@ -152,8 +166,13 @@ function resolveDpr(cssW, cssH) {
 export function initGrainient(container, options = {}) {
   if (!container) return () => {};
 
+  // Gate again before any WebGL work (in case caller skipped the pre-check).
+  if (!shouldRunGrainient()) {
+    container.classList.add('grainient-container', 'grainient-container--skipped');
+    return () => {};
+  }
+
   const opts = { ...DEFAULTS, ...options };
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   container.classList.add('grainient-container');
 
   let renderer;
@@ -238,13 +257,14 @@ export function initGrainient(container, options = {}) {
   };
 
   let raf = 0;
+  let lastRender = 0;
   let isVisible = true;
   let isPageVisible = !document.hidden;
   const t0 = performance.now();
 
   const ro = new ResizeObserver(() => {
     setSize();
-    if (prefersReducedMotion || raf === 0) {
+    if (raf === 0) {
       renderFrame(program.uniforms.iTime.value);
     }
   });
@@ -252,14 +272,16 @@ export function initGrainient(container, options = {}) {
   if (container.parentElement) ro.observe(container.parentElement);
 
   const loop = (now) => {
-    renderFrame((now - t0) * 0.001);
     raf = requestAnimationFrame(loop);
+    if (now - lastRender < FRAME_MS) return;
+    lastRender = now;
+    renderFrame((now - t0) * 0.001);
   };
 
   const tryStart = () => {
-    if (prefersReducedMotion) return;
     if (isVisible && isPageVisible && raf === 0) {
       setSize();
+      lastRender = 0;
       raf = requestAnimationFrame(loop);
     }
   };
@@ -276,11 +298,7 @@ export function initGrainient(container, options = {}) {
       isVisible = entry.isIntersecting && entry.intersectionRatio > 0;
       if (isVisible) {
         setSize();
-        if (prefersReducedMotion) {
-          renderFrame(0);
-        } else {
-          tryStart();
-        }
+        tryStart();
       } else {
         tryStop();
       }
@@ -291,34 +309,13 @@ export function initGrainient(container, options = {}) {
 
   const onVisibility = () => {
     isPageVisible = !document.hidden;
-    if (isPageVisible) {
-      if (prefersReducedMotion) {
-        setSize();
-        renderFrame(program.uniforms.iTime.value || 0);
-      } else {
-        tryStart();
-      }
-    } else {
-      tryStop();
-    }
+    isPageVisible ? tryStart() : tryStop();
   };
   document.addEventListener('visibilitychange', onVisibility);
 
-  // Initial layout + first paint (static if reduced-motion).
   setSize();
   renderFrame(0);
-
-  if (!prefersReducedMotion) {
-    // Defer continuous loop until the main thread is idle / after load.
-    const scheduleLoop = () => {
-      tryStart();
-    };
-    if (typeof requestIdleCallback === 'function') {
-      requestIdleCallback(scheduleLoop, { timeout: 1200 });
-    } else {
-      window.setTimeout(scheduleLoop, 200);
-    }
-  }
+  tryStart();
 
   return () => {
     tryStop();
