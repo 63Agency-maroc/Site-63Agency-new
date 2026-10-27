@@ -979,12 +979,6 @@ body.nav-locked {
   padding-right: 3rem;
 }
 
-.partners__group picture {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
 .partners__group img {
   height: 40px;
   width: auto;
