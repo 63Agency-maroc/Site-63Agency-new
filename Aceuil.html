@@ -136,9 +136,7 @@
   </aside>
 
   <section class="hero" id="accueil">
-    <div class="hero__bg">
-      <div id="hero-grainient" class="grainient-container"></div>
-    </div>
+    <div class="hero__bg" aria-hidden="true"></div>
 
     <div class="hero__content">
       <p class="hero__eyebrow" data-animate="fade-up" data-delay="0" data-i18n="hero.eyebrow">
@@ -836,47 +834,6 @@
       });
     });
 
-    const grainientOptions = {
-      color1: '#404040',
-      color2: '#000000',
-      color3: '#404040',
-      timeSpeed: 0.25,
-      colorBalance: 0.0,
-      warpStrength: 1.0,
-      warpFrequency: 5.0,
-      warpSpeed: 2.0,
-      warpAmplitude: 50.0,
-      blendAngle: 0.0,
-      blendSoftness: 0.05,
-      rotationAmount: 500.0,
-      noiseScale: 2.0,
-      grainAmount: 0.1,
-      grainScale: 2.0,
-      grainAnimated: false,
-      contrast: 1.5,
-      gamma: 1.0,
-      saturation: 1.0,
-      centerX: 0.0,
-      centerY: 0.0,
-      zoom: 0.9
-    };
-
-    // Capability gate before importing OGL/WebGL (mobile / low-end skip).
-    const shouldRunGrainient = () => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
-      if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) return false;
-      if (window.matchMedia('(max-width: 768px)').matches) return false;
-      if (navigator.deviceMemory && navigator.deviceMemory <= 4) return false;
-      return true;
-    };
-
-    if (shouldRunGrainient()) {
-      import('./js/Grainient.js')
-        .then(({ initGrainient }) => {
-          initGrainient(document.getElementById('hero-grainient'), grainientOptions);
-        })
-        .catch((err) => console.warn('[Grainient] skipped:', err));
-    }
   </script>
 </body>
 </html>
