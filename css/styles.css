@@ -2794,7 +2794,7 @@ body.is-form-sent .contact-section {
   margin-top: 0.15rem;
   padding: 1.05rem 1.25rem;
   border: none;
-  border-radius: 0.3rem;
+  border-radius: 999px;
   background: var(--gold-gradient);
   color: #111;
   font-weight: 800;
@@ -2802,10 +2802,31 @@ body.is-form-sent .contact-section {
   letter-spacing: 0.07em;
   text-transform: uppercase;
   box-shadow: none;
+  overflow: hidden;
 }
 
 .contact-form .form-submit::after {
-  display: none;
+  display: block;
+  left: auto;
+  right: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 35%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.15) 65%,
+    transparent 100%
+  );
+  transform: translateX(180%) skewX(-18deg);
+  transform-origin: center;
+  transition: none;
+  animation: form-submit-shine 4.8s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .contact-form .form-submit:hover {
@@ -2813,6 +2834,29 @@ body.is-form-sent .contact-section {
   border-color: transparent;
   filter: brightness(1.06);
   transform: none;
+}
+
+.contact-form .form-submit:hover::after {
+  transform: translateX(180%) skewX(-18deg);
+}
+
+@keyframes form-submit-shine {
+  0% {
+    transform: translateX(180%) skewX(-18deg);
+  }
+  70% {
+    transform: translateX(-280%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(-280%) skewX(-18deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-form .form-submit::after {
+    animation: none;
+    display: none;
+  }
 }
 
 .contact-form .form-input,
