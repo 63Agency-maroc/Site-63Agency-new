@@ -2172,7 +2172,7 @@ body.nav-locked {
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 3.25rem;
   margin-top: 1.65rem;
 }
 
@@ -3920,7 +3920,7 @@ body.is-form-sent .contact-section {
 
   .contact-grid {
     grid-template-columns: 1fr !important;
-    gap: 1.5rem;
+    gap: 3.25rem;
   }
 
   .contact-sidebar.services-panel {
