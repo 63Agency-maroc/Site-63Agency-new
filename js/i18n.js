@@ -238,7 +238,27 @@ const translations = {
     'sfaq.q5': 'Mettez-vous en place un CRM et des automatisations ?',
     'sfaq.a5': 'Oui. Suivi, relances et pipeline commercial : chaque prospect est traité au bon moment.',
     'sfaq.q6': 'Comment scalez-vous les résultats ?',
-    'sfaq.a6': 'On analyse en continu, on optimise ce qui convertit, on coupe ce qui ne performe pas, puis on augmente le volume selon vos objectifs.'
+    'sfaq.a6': 'On analyse en continu, on optimise ce qui convertit, on coupe ce qui ne performe pas, puis on augmente le volume selon vos objectifs.',
+
+    'services.step.1.detail': 'Vous repartez avec un positionnement clair, une offre lisible et des contenus prêts à nourrir vos campagnes Meta Ads et Google Ads.',
+    'services.step.2.detail': 'Nous structurons et optimisons vos campagnes publicitaires au Maroc pour générer des prospects qualifiés, avec un suivi du coût par lead.',
+    'services.step.3.detail': 'Les leads non qualifiés sont filtrés avant votre équipe : vous ne gardez que les demandes réellement intéressées par un rendez-vous.',
+    'services.step.4.detail': 'Chaque prospect est suivi dans un CRM dédié, avec relances automatisées pour ne perdre aucune opportunité commerciale.',
+    'services.step.5.detail': 'Nous analysons les performances en continu, renforçons ce qui convertit et augmentons le volume selon vos objectifs business.',
+
+    'services.sectors.eyebrow': 'Secteurs',
+    'services.sectors.title': 'Pour qui ?',
+    'services.sectors.sub': 'Nous générons des prospects qualifiés pour les entreprises de services qui veulent un système d’acquisition clair et mesurable.',
+    'services.sectors.edu.title': 'Éducation & formation',
+    'services.sectors.edu.text': 'Pour les écoles, académies et centres de formation : attirer des candidats prêts à s’inscrire ou à prendre un rendez-vous admissions.',
+    'services.sectors.realestate.title': 'Immobilier',
+    'services.sectors.realestate.text': 'Pour les promoteurs et agences : générer des demandes qualifiées sur vos programmes et biens, avec un suivi jusqu’au rendez-vous.',
+    'services.sectors.hospitality.title': 'Hôtellerie & tourisme',
+    'services.sectors.hospitality.text': 'Pour les hôtels et acteurs du tourisme : capter des clients à forte intention via le marketing digital et des campagnes ciblées.',
+    'services.sectors.b2b.title': 'Services B2B',
+    'services.sectors.b2b.text': 'Pour les entreprises B2B : obtenir des leads qualifiés qui correspondent à votre offre, votre ticket et votre capacité commerciale.',
+    'services.sectors.b2c.title': 'Services B2C',
+    'services.sectors.b2c.text': 'Pour les services B2C : transformer l’attention en demandes concrètes, prêtes à être converties en rendez-vous ou en ventes.'
   },
 
   en: {
@@ -478,7 +498,27 @@ const translations = {
     'sfaq.q5': 'Do you set up CRM and automations?',
     'sfaq.a5': 'Yes. Tracking, follow-ups, and a sales pipeline so every prospect is handled at the right time.',
     'sfaq.q6': 'How do you scale results?',
-    'sfaq.a6': 'We analyze continuously, optimize what converts, cut what does not perform, then increase volume based on your goals.'
+    'sfaq.a6': 'We analyze continuously, optimize what converts, cut what does not perform, then increase volume based on your goals.',
+
+    'services.step.1.detail': 'You leave with clear positioning, a readable offer, and content ready to fuel your Meta Ads and Google Ads campaigns.',
+    'services.step.2.detail': 'We structure and optimize your ad campaigns in Morocco to generate qualified prospects, with cost-per-lead tracking.',
+    'services.step.3.detail': 'Unqualified leads are filtered before your team: you only keep requests that are genuinely interested in a meeting.',
+    'services.step.4.detail': 'Every prospect is tracked in a dedicated CRM, with automated follow-ups so no commercial opportunity is lost.',
+    'services.step.5.detail': 'We analyze performance continuously, reinforce what converts, and increase volume based on your business goals.',
+
+    'services.sectors.eyebrow': 'Sectors',
+    'services.sectors.title': 'Who we help',
+    'services.sectors.sub': 'We generate qualified prospects for service businesses that want a clear, measurable acquisition system.',
+    'services.sectors.edu.title': 'Education & training',
+    'services.sectors.edu.text': 'For schools, academies, and training centers: attract candidates ready to enroll or book an admissions meeting.',
+    'services.sectors.realestate.title': 'Real estate',
+    'services.sectors.realestate.text': 'For developers and agencies: generate qualified demand for your projects and listings, tracked through to the appointment.',
+    'services.sectors.hospitality.title': 'Hospitality & tourism',
+    'services.sectors.hospitality.text': 'For hotels and tourism businesses: capture high-intent clients through digital marketing and targeted campaigns.',
+    'services.sectors.b2b.title': 'B2B services',
+    'services.sectors.b2b.text': 'For B2B companies: get qualified leads that match your offer, ticket size, and sales capacity.',
+    'services.sectors.b2c.title': 'B2C services',
+    'services.sectors.b2c.text': 'For B2C services: turn attention into concrete requests ready to convert into meetings or sales.'
   }
 };
 
