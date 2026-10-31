@@ -212,6 +212,30 @@ export function initContactForm() {
     return true;
   };
 
+  const readUtm = () => {
+    const empty = {
+      utm_source: '',
+      utm_medium: '',
+      utm_campaign: '',
+      utm_content: '',
+      utm_term: ''
+    };
+    try {
+      const raw = sessionStorage.getItem('63agency-utm');
+      if (!raw) return empty;
+      const parsed = JSON.parse(raw);
+      return {
+        utm_source: String(parsed?.utm_source ?? ''),
+        utm_medium: String(parsed?.utm_medium ?? ''),
+        utm_campaign: String(parsed?.utm_campaign ?? ''),
+        utm_content: String(parsed?.utm_content ?? ''),
+        utm_term: String(parsed?.utm_term ?? '')
+      };
+    } catch {
+      return empty;
+    }
+  };
+
   const buildPayload = () => {
     const fd = new FormData(form);
     const dial = String(fd.get('dial') ?? '').trim();
@@ -222,7 +246,8 @@ export function initContactForm() {
       email: String(fd.get('email') ?? '').trim(),
       phone: `${dial}${local}`,
       role: String(fd.get('role') ?? '').trim(),
-      budget: String(fd.get('revenue') ?? '').trim()
+      budget: String(fd.get('revenue') ?? '').trim(),
+      ...readUtm()
     };
   };
 
