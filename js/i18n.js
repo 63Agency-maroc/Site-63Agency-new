@@ -208,7 +208,7 @@ const translations = {
 
     'promise.heading': 'Agence de Performance &amp; Marketing Digital Orientée ROI<span class="promise__dot">.</span>',
     'promise.quote': '<span class="promise__mark">“</span>Notre promesse est simple :<br>Des leads qualifiés. Des rendez-vous. Une croissance mesurable.<span class="promise__mark">”</span>',
-    'promise.caption': 'Saad CHAHOUBI, Fondateur, 63 Agency',
+    'promise.caption': 'Saad CHAHOUBI-Fondateur, 63 Agency',
     'promise.cta': 'Parler à un expert',
 
     'about.scroll.brand': '63 Agency',
@@ -494,7 +494,7 @@ const translations = {
 
     'promise.heading': 'Performance &amp; Digital Marketing Agency Focused on ROI<span class="promise__dot">.</span>',
     'promise.quote': '<span class="promise__mark">“</span>Our promise is simple:<br>Qualified leads. Appointments. Measurable growth.<span class="promise__mark">”</span>',
-    'promise.caption': 'Saad CHAHOUBI, Founder, 63 Agency',
+    'promise.caption': 'Saad CHAHOUBI-Founder, 63 Agency',
     'promise.cta': 'Talk to an expert',
 
     'about.scroll.brand': '63 Agency',
