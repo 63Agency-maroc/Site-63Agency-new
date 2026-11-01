@@ -77,7 +77,7 @@ const translations = {
     'cta.text': '<span class="cta__text-line">Si vous vendez un service et voulez un système d’acquisition clair, parlons-en.</span><span class="cta__text-line">Places limitées pour garder la qualité.</span>',
     'cta.btn': 'Parler à un expert',
 
-    'footer.disclaimer': 'This site is not a part of, or endorsed by, Facebook/Meta or Google in any way. FACEBOOK is a trademark of Meta Platforms, Inc. GOOGLE is a trademark of Google LLC.',
+    'footer.disclaimer': 'This site is not a part of, or endorsed by, Facebook/Meta or Google in any way.<br>FACEBOOK is a trademark of Meta Platforms, Inc. GOOGLE is a trademark of Google LLC.',
     'footer.copy': '© 2026 63 Agency Tous droits réservés.',
     'footer.privacy': 'Politique de confidentialité',
     'footer.terms': 'Conditions générales',
@@ -363,7 +363,7 @@ const translations = {
     'cta.text': '<span class="cta__text-line">If you sell a service and want a clear acquisition system, let’s talk.</span><span class="cta__text-line">Limited spots to protect quality.</span>',
     'cta.btn': 'Talk to an expert',
 
-    'footer.disclaimer': 'This site is not a part of, or endorsed by, Facebook/Meta or Google in any way. FACEBOOK is a trademark of Meta Platforms, Inc. GOOGLE is a trademark of Google LLC.',
+    'footer.disclaimer': 'This site is not a part of, or endorsed by, Facebook/Meta or Google in any way.<br>FACEBOOK is a trademark of Meta Platforms, Inc. GOOGLE is a trademark of Google LLC.',
     'footer.copy': '© 2026 63 Agency All rights reserved.',
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms & Conditions',
